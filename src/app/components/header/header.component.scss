@@ -1,0 +1,20 @@
+* {
+  transition: all 0.5s;
+}
+.item-menu:hover {
+  background: rgba(37, 78, 78, 0.1);
+  transform: scale(1.1);
+}
+
+.item-menu {
+    border-radius: 10px;
+  font: normal normal normal 13px/1.4em raleway, sans-serif;
+  margin: 10px;
+  color: #0f4c85 !important;
+}
+
+.titulo-navbar {
+  color: #00305b !important;
+  min-width: 50%;
+  margin: auto;
+}
