@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ɵELEMENT_PROBE_PROVIDERS } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-maestro',
@@ -15,6 +16,7 @@ export class MaestroComponent implements OnInit {
   public irAElemento(dato: any): void {
     const element: HTMLElement = document.getElementById(dato);
     element.scrollIntoView();
+    element.scrollTop = 0;
     console.log(element);
     console.log(dato);
   }

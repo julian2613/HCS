@@ -10,6 +10,7 @@ import { routes } from './app-routing.module';
 import { AseguradoraComponent } from './components/aseguradora/aseguradora.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapfreComponent } from './components/mapfre/mapfre.component';
+import { FormsService } from './services/forms/forms.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { MapfreComponent } from './components/mapfre/mapfre.component';
     RouterModule.forRoot(routes),
     NgbModule
   ],
-  providers: [],
+  providers: [
+    FormsService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
   ]

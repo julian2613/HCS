@@ -1,0 +1,233 @@
+{
+    "bienesYValores": [
+        {
+            "nombre": "Edificios",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Indice de Variable",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Contenidos",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Muebles y enseres",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Equipo electrico y electronico fijo",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Equipo electrico y electronico movil",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Maquinarias",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Mercancias",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Materia Prima",
+            "idFormulario": "",
+            "important": false
+        }
+    ],
+    "amparos": [
+        {
+            "nombre": "Incendios y/o rayo, Actos de autoridad, Explos Tifón, Huracán, Tornado, Ciclón, Vientos Fuertes, Granizo, Aeronaves, Vehículos, Humo, Daños por Agua, Anegación, Avalancha, Deslizamiento.",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Lucro cesante Serv. Puplic.",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Lucro cesante Proveedores",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Infidelidad de Empleados",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Equipo Eléctrico y Electrónico",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Equipo Eléctrico y Electrónico Móvil",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Frigorificos",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Vidas Grupo",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Terremoto, Temblor y Erupción volcánica",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Accidentes Personales",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "AMIT - AMCCPH",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Gastos Medicos",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Hurto Calificado",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Transporte de Valores",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Hurto Simplificado (Solo para equipo de oficina)",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Limite por despacho",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Hurto Calificado Dinero en efectivo",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Estimado Anual Declarado",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Rotura de cristales, vidrios",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Rotura de Maquinaria",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Resp. Civil Extracontractual",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Lucro cesante por incendio",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Lucro cesante por rotura Maq.",
+            "idFormulario": "",
+            "important": false
+        },
+        {
+            "nombre": "Porcentaje de Recargos",
+            "idFormulario": "",
+            "important": true
+        }
+    ],
+    "asistenciaPymes": [
+        {
+            "nombre": "Plomeria",
+            "valor": "30 SMDLV por evento",
+            "important": true
+        },
+        {
+            "nombre": "Electricidad",
+            "valor": "30 SMDLV por evento",
+            "important": true
+        },
+        {
+            "nombre": "Cerrajeria",
+            "valor": "30 SMDLV por evento",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de Vidrios",
+            "valor": "30 SMDLV por evento",
+            "important": true
+        },
+        {
+            "nombre": "Vigilante Sustituto",
+            "valor": "Hasta 7 días",
+            "important": true
+        },
+        {
+            "nombre": "Aseadora Sustituta",
+            "valor": "Hasta 5 días",
+            "important": true
+        },
+        {
+            "nombre": "Gastos de reparación propiedades vecinas",
+            "valor": "30 SMDLV por evento",
+            "important": true
+        },
+        {
+            "nombre": "Transmision de mensajes urgentes",
+            "valor": "Sí",
+            "important": true
+        },
+        {
+            "nombre": "Orientacion Juridica",
+            "valor": "Hasta 7 días por vigencia",
+            "important": true
+        },
+        {
+            "nombre": "Orientacion Juridica telefonica",
+            "valor": "Hasta 7 días por vigencia",
+            "important": true
+        },
+        {
+            "nombre": "Emision de Conceptos Juridicos",
+            "valor": "Sí",
+            "important": true
+        },
+        {
+            "nombre": "Elaboración de documentos",
+            "valor": "Sí",
+            "important": true
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
-
+import * as datos from './datos.json';
 @Component({
   selector: 'app-aseguradora',
   templateUrl: './aseguradora.component.html',
@@ -10,6 +10,9 @@ export class AseguradoraComponent implements OnInit {
 
   public dinamycTextModal: string;
   public activeModal: NgbActiveModal;
+  public bienesYValores: Array<object> = datos.bienesYValores;
+  public amparos: Array<object> = datos.amparos;
+  public asistenciaPymes: Array<object> = datos.asistenciaPymes;
 
   constructor(
     private modalService: NgbModal
@@ -25,6 +28,10 @@ export class AseguradoraComponent implements OnInit {
 
   public closeModal(): void {
     this.activeModal.close();
-  };
+  }
+
+  public generarDocumento():void{
+    
+  }
 
 }

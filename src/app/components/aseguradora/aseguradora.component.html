@@ -7,9 +7,9 @@
     </div>
     <div class="col-7">
         <a class="image-container" (click)="openModal(mapfre, 'myCustomModalClass')">
-            <img src="./../../../assets/images/mapfre.jpg" width="228px" height="110px">
+            <img src="./../../../assets/images/mapfre.jpg" width="228px" height="110px" placement="bottom"
+                ngbPopover="PYMES" triggers="mouseenter:mouseleave" popoverTitle="Disponibles">
         </a>
-
     </div>
 </div>
 
@@ -24,10 +24,199 @@
         </button>
     </div>
     <div class="modal-body">
-        <app-mapfre></app-mapfre>
+        <section>
+            <div class="row" style="color: #ec2c01;">
+                <div class="col-3">
+                    <img src="./../../../assets/images/mapfre.jpg" alt="" width="228px" height="110px">
+                </div>
+                <div class="col-4" style="color: #41a02c;">
+                    COTIZACION POLIZA DE TODO RIESGOS DAÑO MATERIAL EQUIEMPRESA
+                </div>
+                <div class="col-5" style="color: #41a02c;">
+                    PYMES
+                </div>
+            </div>
+            <!-- Datos de cliente  INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="color: #41a02c; margin-bottom: 10px;margin-top: 25px;">
+                <div class="col-12">Datos de cliente</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-3">
+                    Fecha
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Nombre del Cliente
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    C.C. / NIT
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    Teléfono
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Asesor
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-3">
+                    Agencia
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <!-- Datos de Riesgo -->
+            <div class="row" style="color: #41a02c; margin-bottom: 10px;">
+                <div class="col-12">
+                    Datos de Riesgo
+                </div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-3">
+                    Direccion
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    Ciudad
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    Barrio
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    Depto.
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    No. de Pisos
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    No. Sótanos
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-1">
+                    Año de construccion
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2"> Actividad</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Irreg. de Planta</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Irreg. Altura</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2"> Tipo Estructura</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Grupo Construccion</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Uso de Riesgo</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2"> Estructura Reforzada</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Daños Previos</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2"> Bienes Asegurados</div>
+                <div class="col-2">
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+            <!-- Relacion de bienes INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Relacion de bienes</div>
+                <div class="col-4" style="color: #41a02c;">Valores asegurados</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row list-items" *ngFor=" let item of bienesYValores">
+                    <div class="col-4">{{item.nombre}}</div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <!-- Relacion de bienes INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-12" style="color: #41a02c;">Amparos</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row" style="min-width: 45%; max-width: 45%; margin: 0.5%;" *ngFor=" let item of amparos">
+                    <div class="col-3" style="min-width: 50%;" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}
+                    </div>
+                    <div class="col-3" style="min-width: 50%;">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <!-- Asistencia PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Asistencia PYME</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row list-items" *ngFor=" let item of asistenciaPymes">
+                    <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
+                    <div class="col-4" style="text-align: left">{{item.valor}}</div>
+                </div>
+            </div>
+        </section>
     </div>
     <div class="modal-footer">
-        <label style="font-weight: bold;">termsAndConditions.ending</label>
+        <label style="font-weight: bold;">Por favor validar la direccion de correo a la cual se enviara el
+            documento.</label>
+        <button type="button" class="btn btn-secondary" (click)="generarDocumento()">Generar Documento</button>
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
     </div>
 </ng-template>
