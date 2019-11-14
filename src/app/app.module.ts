@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { AseguradoraComponent } from './components/aseguradora/aseguradora.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MapfreComponent } from './components/mapfre/mapfre.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     HeaderComponent,
     MaestroComponent,
-    AseguradoraComponent
+    AseguradoraComponent,
+    MapfreComponent
   ],
   imports: [
     BrowserModule,

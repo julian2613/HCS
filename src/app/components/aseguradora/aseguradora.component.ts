@@ -18,10 +18,13 @@ export class AseguradoraComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal(content, styles?) {
-    debugger;
+  public openModal(content, styles?): void {
     this.dinamycTextModal = 'Si el problema persiste, contacte con el proveedor del servicio.';
     this.activeModal = this.modalService.open(content, { windowClass: styles });
   }
+
+  public closeModal(): void {
+    this.activeModal.close();
+  };
 
 }

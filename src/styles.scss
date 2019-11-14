@@ -13,3 +13,9 @@ app-header {
 .modal-open {
     padding-right: 0px !important;
 }
+
+
+.myCustomModalClass .modal-dialog {
+    min-width: 70%;
+  }
+  
