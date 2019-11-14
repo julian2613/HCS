@@ -7,19 +7,25 @@ import { HeaderComponent } from './components/header/header.component';
 import { MaestroComponent } from './components/maestro/maestro.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
+import { AseguradoraComponent } from './components/aseguradora/aseguradora.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    MaestroComponent
+    MaestroComponent,
+    AseguradoraComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+  ]
 })
 export class AppModule { }

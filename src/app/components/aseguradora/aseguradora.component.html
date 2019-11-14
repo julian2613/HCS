@@ -1,0 +1,39 @@
+<div class="row" style="min-height: 300px; text-align: center">
+
+    <div class="col-5 titulo-aseguradoras">
+        <span>
+            ASEGURADORAS
+        </span>
+    </div>
+    <div class="col-7">
+        <a class="image-container" (click)="openModal(mapfre)">
+            <img src="./../../../assets/images/mapfre.jpg" width="228px" height="110px">
+        </a>
+
+    </div>
+</div>
+
+<!-- begin terms and conditions Modal template   -->
+<ng-template #mapfre let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">texto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- <div class="modal-body">
+        {{termsAndConditions.description}}
+        <hr>
+        <hr>
+        <div *ngFor="let listTerms of termsAndConditions.conditions">
+            <div class="title-modal">
+                {{listTerms.id}}. {{listTerms.name}}
+            </div>
+            <p> {{listTerms.description}} </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <label style="font-weight: bold;">{{termsAndConditions.ending}}</label>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+    </div> -->
+</ng-template>
