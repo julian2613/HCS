@@ -2,169 +2,169 @@
     "bienesYValores": [
         {
             "nombre": "Edificios",
-            "idFormulario": "",
+            "idFormulario": "edificios",
             "important": false
         },
         {
             "nombre": "Indice de Variable",
-            "idFormulario": "",
+            "idFormulario": "indiceVariable",
             "important": false
         },
         {
             "nombre": "Contenidos",
-            "idFormulario": "",
+            "idFormulario": "contenidos",
             "important": false
         },
         {
             "nombre": "Muebles y enseres",
-            "idFormulario": "",
+            "idFormulario": "mueblesEnseres",
             "important": false
         },
         {
             "nombre": "Equipo electrico y electronico fijo",
-            "idFormulario": "",
+            "idFormulario": "electricoElectronicoFijo",
             "important": false
         },
         {
             "nombre": "Equipo electrico y electronico movil",
-            "idFormulario": "",
+            "idFormulario": "electricoElectronicoMovil",
             "important": false
         },
         {
             "nombre": "Maquinarias",
-            "idFormulario": "",
+            "idFormulario": "maquinarias",
             "important": false
         },
         {
             "nombre": "Mercancias",
-            "idFormulario": "",
+            "idFormulario": "mercancias",
             "important": false
         },
         {
             "nombre": "Materia Prima",
-            "idFormulario": "",
+            "idFormulario": "materiaPrima",
             "important": false
         }
     ],
     "amparos": [
         {
             "nombre": "Incendios y/o rayo, Actos de autoridad, Explos Tifón, Huracán, Tornado, Ciclón, Vientos Fuertes, Granizo, Aeronaves, Vehículos, Humo, Daños por Agua, Anegación, Avalancha, Deslizamiento.",
-            "idFormulario": "",
+            "idFormulario": "generales",
             "important": false
         },
         {
             "nombre": "Lucro cesante Serv. Puplic.",
-            "idFormulario": "",
+            "idFormulario": "lucroCesanteServPuplic",
             "important": false
         },
         {
             "nombre": "Lucro cesante Proveedores",
-            "idFormulario": "",
+            "idFormulario": "lucroCesanteProveedores",
             "important": false
         },
         {
             "nombre": "Infidelidad de Empleados",
-            "idFormulario": "",
+            "idFormulario": "infidelidadEmpleados",
             "important": false
         },
         {
             "nombre": "Equipo Eléctrico y Electrónico",
-            "idFormulario": "",
+            "idFormulario": "equipoEléctricoElectrónico",
             "important": false
         },
         {
             "nombre": "Equipo Eléctrico y Electrónico Móvil",
-            "idFormulario": "",
+            "idFormulario": "equipoEléctricoElectrónicoMóvil",
             "important": false
         },
         {
             "nombre": "Frigorificos",
-            "idFormulario": "",
+            "idFormulario": "frigorificos",
             "important": false
         },
         {
             "nombre": "Vidas Grupo",
-            "idFormulario": "",
+            "idFormulario": "vidasGrupo",
             "important": false
         },
         {
             "nombre": "Terremoto, Temblor y Erupción volcánica",
-            "idFormulario": "",
+            "idFormulario": "terremotoTemblorErupciónvolcánica",
             "important": false
         },
         {
             "nombre": "Accidentes Personales",
-            "idFormulario": "",
+            "idFormulario": "accidentesPersonales",
             "important": false
         },
         {
             "nombre": "AMIT - AMCCPH",
-            "idFormulario": "",
+            "idFormulario": "AMIT_AMCCPH",
             "important": false
         },
         {
             "nombre": "Gastos Medicos",
-            "idFormulario": "",
+            "idFormulario": "gastosMedicos",
             "important": false
         },
         {
             "nombre": "Hurto Calificado",
-            "idFormulario": "",
+            "idFormulario": "hurtoCalificado",
             "important": false
         },
         {
             "nombre": "Transporte de Valores",
-            "idFormulario": "",
+            "idFormulario": "transporteValores",
             "important": false
         },
         {
             "nombre": "Hurto Simplificado (Solo para equipo de oficina)",
-            "idFormulario": "",
+            "idFormulario": "hurtoSimplificado",
             "important": false
         },
         {
             "nombre": "Limite por despacho",
-            "idFormulario": "",
+            "idFormulario": "limiteDespacho",
             "important": false
         },
         {
             "nombre": "Hurto Calificado Dinero en efectivo",
-            "idFormulario": "",
+            "idFormulario": "hurtoCalificadoDineroEfectivo",
             "important": false
         },
         {
             "nombre": "Estimado Anual Declarado",
-            "idFormulario": "",
+            "idFormulario": "estimadoAnualDeclarado",
             "important": false
         },
         {
             "nombre": "Rotura de cristales, vidrios",
-            "idFormulario": "",
+            "idFormulario": "roturaCristalesVidrios",
             "important": false
         },
         {
             "nombre": "Rotura de Maquinaria",
-            "idFormulario": "",
+            "idFormulario": "roturaMaquinaria",
             "important": false
         },
         {
             "nombre": "Resp. Civil Extracontractual",
-            "idFormulario": "",
+            "idFormulario": "respCivilExtracontractual",
             "important": false
         },
         {
             "nombre": "Lucro cesante por incendio",
-            "idFormulario": "",
+            "idFormulario": "lucroCesanteIncendio",
             "important": false
         },
         {
             "nombre": "Lucro cesante por rotura Maq.",
-            "idFormulario": "",
+            "idFormulario": "lucroCesanteRoturaMaq",
             "important": false
         },
         {
             "nombre": "Porcentaje de Recargos",
-            "idFormulario": "",
+            "idFormulario": "porcentajeRecargos",
             "important": true
         }
     ],

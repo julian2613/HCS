@@ -11,6 +11,7 @@ import { AseguradoraComponent } from './components/aseguradora/aseguradora.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapfreComponent } from './components/mapfre/mapfre.component';
 import { FormsService } from './services/forms/forms.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsService } from './services/forms/forms.service';
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     FormsService
