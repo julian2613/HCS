@@ -3,7 +3,7 @@ import { NgbActiveModal, NgbModal, NgbPopover } from '@ng-bootstrap/ng-bootstrap
 import * as datos from './datos.json';
 import { FormsService } from 'src/app/services/forms/forms.service.js';
 import { FormGroup } from '@angular/forms';
-import { HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-aseguradora',
@@ -22,8 +22,11 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   public totalValor: number;
   public objetoFinal: any;
   public emailFormGroup: FormGroup;
-  public showToast: boolean = false;
-  public autohide: boolean = true;
+  public showSuccessToast: boolean = false;
+  public showErrorToast: boolean = false;
+  public autohideSuccess: boolean = true;
+  public autohideError: boolean = true;
+  public buttonDisabled: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -32,7 +35,6 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   ) {
     this.aseguradoraFormGroup = this.formService.formularioCotizacionPymes();
     this.emailFormGroup = this.formService.formularioCorreoElectronico();
-    console.log(this.aseguradoraFormGroup);
   }
 
   ngOnInit() {
@@ -117,28 +119,44 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
       bienesAsegurados: this.aseguradoraFormGroup.controls['datosRiesgo'].get('bienesAsegurados').value,
       bienesYValores: bienesYValores,
       amparos: amparos,
-      asistenciaPymes: asistenciaPymes
-    }
+      asistenciaPymes: asistenciaPymes,
+      totalValorAsegurado: this.totalValorAsegurado
+    };
     this.activeModal.close();
     this.objetoFinal = objetoJson;
     this.openModal(modalCorreo);
   }
 
-  public enviarDocumento():void {
-    const body: any ={
-      "template": {
-        "name": "pyme",
-        "parameters": this.objetoFinal
-      },
-      "mail": {
-        "to": this.emailFormGroup.controls['email'].value
-      }
-    }
-    // this.httpClient.post('http://ec2-18-228-5-3.sa-east-1.compute.amazonaws.com:8080/hcs-1.0/report/generate', body).subscribe((response: any)=>{
-    //   console.log(response);
-
-    // });
-    this.showToast = !this.showToast;
+  public get controlFormularioBYV(): any {
+    return this.aseguradoraFormGroup.get('bienesYValores');
   }
 
+  public get controlFormularioAmparos(): any {
+    return this.aseguradoraFormGroup.get('amparos');
+  }
+
+  public enviarDocumento(): void {
+    this.buttonDisabled = true;
+    setTimeout(() => {
+      this.buttonDisabled = false;
+    }, 5000);
+    const body: any = {
+      template: {
+        name: 'pyme',
+        parameters: this.objetoFinal
+      },
+      mail: {
+        to: this.emailFormGroup.controls['email'].value
+      }
+    };
+    const headers: any = {
+      'Content-type': 'application/json'
+    };
+    this.httpClient.post('http://ec2-18-228-5-3.sa-east-1.compute.amazonaws.com:8080/hcs-1.0/report/generate', body).subscribe((response: any) => {
+      this.showSuccessToast = true;
+      this.activeModal.close();
+    }, ((e: any) => {
+      this.showErrorToast = true;
+    }));
+  }
 }

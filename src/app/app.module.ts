@@ -11,8 +11,9 @@ import { AseguradoraComponent } from './components/aseguradora/aseguradora.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MapfreComponent } from './components/mapfre/mapfre.component';
 import { FormsService } from './services/forms/forms.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(routes),
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPageScrollCoreModule.forRoot({duration: 500})
   ],
   providers: [
     FormsService

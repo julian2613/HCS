@@ -38,3 +38,10 @@ input {
 .bolder{
     font-weight: bold;
 }
+
+.toast-position{
+  position: fixed;
+  right: 60px;
+  top: 120px;
+  z-index: 2000;
+}

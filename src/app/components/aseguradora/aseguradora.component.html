@@ -64,7 +64,7 @@
                         <div class="col-3">
                             Nombre del Cliente
                         </div>
-                        <div class="col-3">
+                        <div class="col-3" style="margin-bottom: 10px;">
                             <input type="text" class="form-control" formControlName="nombreCliente" ngDefaultControl />
                             <span
                                 *ngIf="aseguradoraFormGroup.get('datosCliente').get('nombreCliente').hasError('required') && (aseguradoraFormGroup.get('datosCliente').get('nombreCliente').dirty || aseguradoraFormGroup.get('datosCliente').get('nombreCliente').touched)"
@@ -314,7 +314,7 @@
                                 <input type="number" class="form-control" formControlName="{{item.idFormulario}}"
                                     ngbTooltip="Valor minimo (1)" placement="right" ngDefaultControl />
                                 <span
-                                    *ngIf="aseguradoraFormGroup.get('bienesYValores').controls[item.idFormulario].hasError('required') || aseguradoraFormGroup.get('bienesYValores').controls[item.idFormulario].hasError('min') && (aseguradoraFormGroup.get('bienesYValores').controls[item.idFormulario].dirty || aseguradoraFormGroup.get('bienesYValores').controls[item.idFormulario].touched)"
+                                    *ngIf="controlFormularioBYV.controls[item.idFormulario].hasError('required') || controlFormularioBYV.controls[item.idFormulario].hasError('min') && (controlFormularioBYV.controls[item.idFormulario].dirty || controlFormularioBYV.controls[item.idFormulario].touched)"
                                     class="text-danger">
                                     * Campo requerido
                                 </span>
@@ -336,7 +336,7 @@
                                 <input type="text" class="form-control" formControlName="{{item.idFormulario}}"
                                     ngbTooltip="Valor minimo (1)" placement="right" ngDefaultControl />
                                 <span
-                                    *ngIf="aseguradoraFormGroup.get('amparos').controls[item.idFormulario].hasError('required') || aseguradoraFormGroup.get('amparos').controls[item.idFormulario].hasError('min') && (aseguradoraFormGroup.get('amparos').controls[item.idFormulario].dirty || aseguradoraFormGroup.get('amparos').controls[item.idFormulario].touched)"
+                                    *ngIf="controlFormularioAmparos.controls[item.idFormulario].hasError('required') || controlFormularioAmparos.controls[item.idFormulario].hasError('min') && (controlFormularioAmparos.controls[item.idFormulario].dirty || controlFormularioAmparos.controls[item.idFormulario].touched)"
                                     class="text-danger">
                                     * Campo requerido
                                 </span>
@@ -390,10 +390,10 @@
     <div class="modal-body">
         <div class="row" [formGroup]="emailFormGroup">
             <div class="col-3" style="min-width: 50%;">
-                texto
+                Direccion de correo electronico:
             </div>
             <div class="col-3" style="min-width: 50%;">
-                <input type="text" class="form-control" formControlName="email"
+                <input type="text" class="form-control" formControlName="email" id="emailInput"
                     ngbTooltip="Debe ser una direccion valida" placement="right" ngDefaultControl />
                 <span
                     *ngIf="emailFormGroup.controls['email'].hasError('pattern') && (emailFormGroup.controls['email'].dirty || emailFormGroup.controls['email'].touched)"
@@ -405,23 +405,24 @@
 
     </div>
     <div class="modal-footer">
-        <label style="font-weight: bold; color: red;;">Si cancela, se perderan los datos diligenciados
+        <label style="font-weight: bold; color: red;">Si cancela, se perderan los datos diligenciados
             anteriormente.</label>
-        <button type="button" class="btn btn-primary" [disabled]="emailFormGroup.status == 'VALID' ? false : true" (click)="enviarDocumento()">Enviar</button>
+        <button type="button" class="btn btn-primary" [disabled]="(emailFormGroup.status == 'VALID' ? false : true) || buttonDisabled"
+            (click)="enviarDocumento()">Enviar</button>
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar Envio</button>
     </div>
 </ng-template>
 
-<ngb-toast
-  *ngIf="showToast"
-  header="Autohide can be cancelled"
-  [delay]="5000"
-  [autohide]="autohide"
-  (hide)="show = false; autohide = true"
-  [class.bg-danger]="!autohide"
->
-  
-  <div *ngIf="!autohide">
-    I will remain visible until you leave again.
-  </div>
+<ngb-toast *ngIf="showSuccessToast" header="Envio de correo" [delay]="5000" [autohide]="autohideSuccess"
+    (hide)="showSuccessToast = false; autohideSuccess = true" class="bg-success toast-position">
+    <div style="color: white; font-weight: bold;">
+        El documento se ha enviado exitosamente !
+    </div>
+</ngb-toast>
+
+<ngb-toast *ngIf="showErrorToast" header="Envio de correo" [delay]="5000" [autohide]="autohideError"
+    (hide)="showErrorToast = false; autohideError = true" class="bg-danger toast-position" style="font-weight:bold;">
+    <div  style="color: white; font-weight: bold;">
+        Problemas al enviar el correo electronico !
+    </div>
 </ngb-toast>

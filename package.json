@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.0",
     "@ng-bootstrap/ng-bootstrap": "^5.1.4",
     "font-awesome": "^4.7.0",
+    "ngx-page-scroll-core": "^7.0.0",
     "primeicons": "^2.0.0",
     "primeng": "^8.1.1",
     "rxjs": "~6.4.0",
