@@ -19,7 +19,7 @@ export class MaestroComponent implements OnInit {
   }
 
   public irAElemento(dato: any): void {
-    console.log(dato);
+    console.log('los datos' , dato);
     this.pageScrollService.scroll({ document: this.document, scrollTarget: `#${dato}` });
     // const element: HTMLElement = document.getElementById(dato);
     // element.scrollIntoView();

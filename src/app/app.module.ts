@@ -14,6 +14,9 @@ import { FormsService } from './services/forms/forms.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { PropiedadesComponent } from './components/propiedades/propiedades.component';
+import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
+import { PymesComponent } from './components/pymes/pymes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
     HeaderComponent,
     MaestroComponent,
     AseguradoraComponent,
-    MapfreComponent
+    MapfreComponent,
+    PropiedadesComponent,
+    VehiculosComponent,
+    PymesComponent
   ],
   imports: [
     BrowserModule,
