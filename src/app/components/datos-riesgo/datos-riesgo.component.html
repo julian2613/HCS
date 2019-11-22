@@ -1,0 +1,176 @@
+<div class="form-datos-cliente" [formGroup]="datosRiesgo">
+    <div class="row" style="color: #41a02c; margin-bottom: 10px;">
+        <div class="col-12">
+            Datos de Riesgo
+        </div>
+        <hr style="width: 98%; background: #41a02c; margin: auto;">
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-3">
+            Direccion
+        </div>
+        <div class="col-3">
+            <input type="text" class="form-control" formControlName="direccion" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('direccion').hasError('required') && (datosRiesgo.get('direccion').dirty || datosRiesgo.get('direccion').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-1">
+            Ciudad
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="ciudad" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('ciudad').hasError('required') && (datosRiesgo.get('ciudad').dirty || datosRiesgo.get('ciudad').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-1">
+            Barrio
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="barrio" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('barrio').hasError('required') && (datosRiesgo.get('barrio').dirty || datosRiesgo.get('barrio').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            Depto.
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="departamento" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('departamento').hasError('required') && (datosRiesgo.get('departamento').dirty || datosRiesgo.get('departamento').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-1">
+            No. de Pisos
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="pisos" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('pisos').hasError('required') && (datosRiesgo.get('pisos').dirty || datosRiesgo.get('pisos').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-1">
+            No. Sótanos
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="sotanos" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('sotanos').hasError('required') && (datosRiesgo.get('sotanos').dirty || datosRiesgo.get('sotanos').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-1">
+            Año de construccion
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="anoConstruccion" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('anoConstruccion').hasError('required') && (datosRiesgo.get('anoConstruccion').dirty || datosRiesgo.get('anoConstruccion').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2"> Actividad</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="actividad" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('actividad').hasError('required') && (datosRiesgo.get('actividad').dirty || datosRiesgo.get('actividad').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Irreg. de Planta</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="irregPlanta" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('irregPlanta').hasError('required') && (datosRiesgo.get('irregPlanta').dirty || datosRiesgo.get('irregPlanta').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Irreg. Altura</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="irregAltura" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('irregAltura').hasError('required') && (datosRiesgo.get('irregAltura').dirty || datosRiesgo.get('irregAltura').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2"> Tipo Estructura</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="tipoEstructura" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('tipoEstructura').hasError('required') && (datosRiesgo.get('tipoEstructura').dirty || datosRiesgo.get('tipoEstructura').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Grupo Construccion</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="grupoConstruccion" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('grupoConstruccion').hasError('required') && (datosRiesgo.get('grupoConstruccion').dirty || datosRiesgo.get('grupoConstruccion').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Uso de Riesgo</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="usoDelRiesgo" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('usoDelRiesgo').hasError('required') && (datosRiesgo.get('usoDelRiesgo').dirty || datosRiesgo.get('usoDelRiesgo').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2"> Estructura Reforzada</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="estructuraReforzada" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('estructuraReforzada').hasError('required') && (datosRiesgo.get('estructuraReforzada').dirty || datosRiesgo.get('estructuraReforzada').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Daños Previos</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="danosPrevios" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('danosPrevios').hasError('required') && (datosRiesgo.get('danosPrevios').dirty || datosRiesgo.get('danosPrevios').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+        <div class="col-2"> Bienes Asegurados</div>
+        <div class="col-2">
+            <input type="text" class="form-control" formControlName="bienesAsegurados" ngDefaultControl />
+            <span
+                *ngIf="datosRiesgo.get('bienesAsegurados').hasError('required') && (datosRiesgo.get('bienesAsegurados').dirty || datosRiesgo.get('bienesAsegurados').touched)"
+                class="text-danger">
+                * Campo requerido
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { NgbActiveModal, NgbModal, NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 import * as datos from './datos.json';
 import { FormsService } from 'src/app/services/forms/forms.service.js';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { IAseguradoraProps } from 'src/app/interfaces/IAseguradoraProps.js';
 
 @Component({
   selector: 'app-aseguradora',
@@ -12,10 +13,13 @@ import { HttpClient } from '@angular/common/http';
   providers: [FormsService]
 })
 export class AseguradoraComponent implements OnInit, OnDestroy {
+  @ViewChild('diligenciarCorreo', { static: true }) modalCorreo;
+
+  public propiedadesEmpresa: IAseguradoraProps;
 
   public dinamycTextModal: string;
   public activeModal: NgbActiveModal;
-  public bienesYValores: Array<object> = datos.bienesYValores;
+  public bienesYValores: Array<object> = datos.bienesYValoresPymes;
   public amparos: Array<object> = datos.amparos;
   public asistenciaPymes: Array<object> = datos.asistenciaPymes;
   public aseguradoraFormGroup: FormGroup;
@@ -27,6 +31,7 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   public autohideSuccess: boolean = true;
   public autohideError: boolean = true;
   public buttonDisabled: boolean = false;
+  public aseguradorasList: Array<any> = datos.aseguradoras;
 
   constructor(
     private modalService: NgbModal,
@@ -42,6 +47,16 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.aseguradoraFormGroup.reset();
+  }
+
+  selectCotizador(objetoCotizadora: IAseguradoraProps, modalSeleccion: any): void {
+    this.openModal(modalSeleccion);
+    this.propiedadesEmpresa = objetoCotizadora;
+  }
+
+  public abrirCotizador(modal: any): void {
+    this.activeModal.close();
+    this.openModal(modal, 'myCustomModalClass');
   }
 
   public openModal(content, styles?): void {
@@ -72,11 +87,15 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
     return total;
   }
 
-  public generarDocumento(modalCorreo: any): void {
+  public generarDocumento(formulario: any): void {
+    this.aseguradoraFormGroup = formulario;
     let bienesYValores: object[] = [];
     let amparos: object[] = [];
     let asistenciaPymes: object[] = [];
-    datos.bienesYValores.forEach(element => {
+    let deduciblesLista: object[] = [];
+    let clausulasLista: object[] = [];
+
+    datos.bienesYValoresPymes.forEach(element => {
       bienesYValores.push({
         label: element.nombre,
         valor: this.aseguradoraFormGroup.controls['bienesYValores'].get(element.idFormulario).value
@@ -88,9 +107,14 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
         valor: this.aseguradoraFormGroup.controls['amparos'].get(element.idFormulario).value
       });
     });
-    datos.asistenciaPymes.forEach(element => {
-      asistenciaPymes.push({
+    datos.deducibles.forEach(element => {
+      deduciblesLista.push({
         label: element.nombre,
+        valor: element.valor
+      });
+    });
+    datos.clausulasAdicionales.forEach(element => {
+      clausulasLista.push({
         valor: element.valor
       });
     });
@@ -120,11 +144,15 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
       bienesYValores: bienesYValores,
       amparos: amparos,
       asistenciaPymes: asistenciaPymes,
+      deducibles: deduciblesLista,
+      clasusulas: clausulasLista,
+      observacion: this.aseguradoraFormGroup.controls['observacion'].value,
       totalValorAsegurado: this.totalValorAsegurado
     };
     this.activeModal.close();
     this.objetoFinal = objetoJson;
-    this.openModal(modalCorreo);
+    debugger;
+    this.openModal(this.modalCorreo);
   }
 
   public get controlFormularioBYV(): any {
@@ -149,13 +177,11 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
         to: this.emailFormGroup.controls['email'].value
       }
     };
-    const headers: any = {
-      'Content-type': 'application/json'
-    };
     this.httpClient.post('http://ec2-18-228-5-3.sa-east-1.compute.amazonaws.com:8080/hcs-1.0/report/generate', body).subscribe((response: any) => {
       this.showSuccessToast = true;
       this.activeModal.close();
     }, ((e: any) => {
+      console.error(e);
       this.showErrorToast = true;
     }));
   }

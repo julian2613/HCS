@@ -15,8 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { PropiedadesComponent } from './components/propiedades/propiedades.component';
-import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { PymesComponent } from './components/pymes/pymes.component';
+import { DatosClienteComponent } from './components/datos-cliente/datos-cliente.component';
+import { DatosRiesgoComponent } from './components/datos-riesgo/datos-riesgo.component';
+import { TarjetaUsuarioComponent } from './components/tarjeta-usuario/tarjeta-usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,10 @@ import { PymesComponent } from './components/pymes/pymes.component';
     AseguradoraComponent,
     MapfreComponent,
     PropiedadesComponent,
-    VehiculosComponent,
-    PymesComponent
+    PymesComponent,
+    DatosClienteComponent,
+    DatosRiesgoComponent,
+    TarjetaUsuarioComponent
   ],
   imports: [
     BrowserModule,

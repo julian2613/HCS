@@ -1,1 +1,156 @@
-<p>pymes works!</p>
+<form [formGroup]="aseguradoraFormGroup" *ngIf="aseguradoraFormGroup">
+    <div class="modal-header">
+        <h4 class="modal-title" style="text-align: center; width: 100%;">
+            Formulario {{propiedadesAseguradora.nombre}}
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <section>
+            <div class="row" style="color: #ec2c01; width: 100%;">
+                <div class="col-4">
+                    <img src="{{propiedadesAseguradora.imagen}}" alt="" width="228px" height="110px">
+                </div>
+                <div class="col-4" style="color: #41a02c;  font-size: 1.4em; text-align: center;">
+                    COTIZACION POLIZA DE TODO RIESGOS DAÑO MATERIAL EQUIEMPRESA
+                </div>
+                <div class="col-4" style="color: #41a02c; text-align: right; font-size: 1.5em;">
+                    PYME
+                </div>
+            </div>
+
+            <!-- Datos de cliente  INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <app-datos-cliente (envioDatosCliente)="updateFormGroup($event, 'datosCliente')"></app-datos-cliente>
+
+            <!-- Datos de Riesgo -->
+            <app-datos-riesgo (envioDatosRiesgo)="updateFormGroup($event, 'datosRiesgo')"></app-datos-riesgo>
+
+            <!-- Relacion de bienes INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="form-relacion-bienes" [formGroup]="aseguradoraFormGroup.controls.bienesYValores">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-4" style="color: #41a02c;">Relacion de bienes</div>
+                    <div class="col-4" style="color: #41a02c;">Valores asegurados</div>
+                    <hr style="width: 98%; background: #41a02c; margin: auto;">
+                    <div class="row list-items" *ngFor=" let item of bienesYValores">
+                        <div class="col-4">{{item.nombre}}</div>
+                        <div class="col-4">
+                            <input type="number" class="form-control" formControlName="{{item.idFormulario}}"
+                                ngbTooltip="{{item.labelInfo}}" placement="right" ngDefaultControl />
+                            <span
+                                *ngIf="controlFormularioBYV.controls[item.idFormulario].hasError('required') || controlFormularioBYV.controls[item.idFormulario].hasError('min') && (controlFormularioBYV.controls[item.idFormulario].dirty || controlFormularioBYV.controls[item.idFormulario].touched)"
+                                class="text-danger">
+                                * Campo requerido
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Amparos INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="form-relacion-bienes" [formGroup]="aseguradoraFormGroup.controls.amparos">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-12" style="color: #41a02c;">Amparos</div>
+                    <hr style="width: 98%; background: #41a02c; margin: auto;">
+                    <div class="row" style="min-width: 45%; max-width: 45%; margin: 0.5%;"
+                        *ngFor=" let item of amparos">
+                        <div class="col-3" style="min-width: 50%;" [ngClass]="item.important ? 'bolder': ''">
+                            {{item.nombre}}
+                        </div>
+                        <div class="col-3" style="min-width: 50%;">
+                            <input type="text" class="form-control" formControlName="{{item.idFormulario}}"
+                                ngbTooltip="Valor minimo (1)" placement="right" ngDefaultControl />
+                            <span
+                                *ngIf="controlFormularioAmparos.controls[item.idFormulario].hasError('required') || controlFormularioAmparos.controls[item.idFormulario].hasError('min') && (controlFormularioAmparos.controls[item.idFormulario].dirty || controlFormularioAmparos.controls[item.idFormulario].touched)"
+                                class="text-danger">
+                                * Campo requerido
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 bolder">
+                    Total valor asegurado
+                </div>
+                <div class="col-3">
+                    {{totalValorAsegurado}}
+                </div>
+
+            </div>
+
+            <!-- Asistencia PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Asistencia PYME</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row list-items" *ngFor=" let item of asistenciaPymes">
+                    <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
+                    <div class="col-4" style="text-align: left">{{item.valor}}</div>
+                </div>
+            </div>
+            <!-- deducibles PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Deducibles</div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row list-items" *ngFor=" let item of asistenciaDeducibles">
+                    <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
+                    <div class="col-8" style="text-align: left">{{item.valor}}</div>
+                </div>
+            </div>
+
+            <!-- Totales  -->
+            <div class="col-4" style="color: #41a02c;">Totales</div>
+            <hr style="width: 98%; background: #41a02c; margin: auto;">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-2"> Prima Anual:</div>
+                <div class="col-2">
+                    {{ totalValorAsegurado ? totalValorAsegurado * (+propiedadesAseguradora.tasaPymes) : 0}}
+                </div>
+                <div class="col-2"> Iva:</div>
+                <div class="col-2">
+                </div>
+                <div class="col-2"> Total:</div>
+                <div class="col-2">
+                </div>
+            </div>
+
+            <!-- clausulas PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Clausulas adicionales: </div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row list-items" *ngFor=" let item of asistenciaClausulas">
+                    <div class="col-8" style="text-align: left; margin-left: 20px;">{{item.valor}}</div>
+                </div>
+            </div>
+            <!-- clausulas PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" style="color: #41a02c;">Observaciones: </div>
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row" style="justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 20px">
+                    <div class="col-10">
+                        <textarea type="text" formControlName="observacion" class="form-control"
+                            style="width: 100%;"></textarea>
+                    </div>
+                </div>
+
+                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="row" style="justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 20px">
+                    <div class="col-10" style="text-align: center;">
+                        TODAS LAS CONDICIONES DE ESTA COTIZACION SE RIGEN POR EL CONDICIONADO GENERAL FORMA 05/05/2015-1501-P-07-0000000000000002803, LA EXPEDICION DE LA POLIZA ESTA CONDICIONADA AL CUMPLIMIENTO DE LOS REQUISITOS DE ASEGURABILIDAD EXIGIDOS POR LA EQUIDAD SEGUROS O.C.
+                        <p>
+                            La presente cotizacion tiene vigencia de 15 dias calendario a partir de su fecha de emisión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal-footer">
+        <label style="font-weight: bold;">Por favor validar la direccion de correo a la cual se enviara el
+            documento.</label>
+        <button type="button" class="btn btn-primary" [disabled]="aseguradoraFormGroup.status == 'VALID' ? false : true"
+            (click)="enviarSolicitud()">Generar
+            Documento</button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+    </div>
+</form>

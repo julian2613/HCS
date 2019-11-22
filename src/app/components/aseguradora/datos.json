@@ -1,233 +1,490 @@
 {
-    "bienesYValores": [
+    "aseguradoras": [
+        {
+            "nombre": "Mapfre",
+            "imagen": "./../../../assets/images/mapfre.jpg",
+            "color": "#fc1702",
+            "tasaPymes": "0.0025",
+            "tasaCopropiedad": "0.0008"
+        },
+        {
+            "nombre": "Seguros Del Estado",
+            "imagen": "./../../../assets/images/segurosDelEstado.jpg",
+            "color": "#323055",
+            "tasaPymes": "0.0024",
+            "tasaCopropiedad": "0.0010"
+        },
+        {
+            "nombre": "Equidad Seguros",
+            "imagen": "./../../../assets/images/equidadSeguros.jpg",
+            "color": "#2ca02c",
+            "tasaPymes": "",
+            "tasaCopropiedad": ""
+        }
+    ],
+    "clausulasAdicionales": [
+        {
+            "valor": "Remocion de escombros hasta por el 10% predio afectado.",
+            "important": true
+        },
+        {
+            "valor": "Revocacion poliza 30 dias calendario, excepto hmacc/ammit 10 dias",
+            "important": true
+        },
+        {
+            "valor": "Traslado temporal de mauquinaria y equipo con aviso 60 dias, se excluye transporte",
+            "important": true
+        },
+        {
+            "valor": "Restablecimiento automatico del valor asegurado por pago de sniestro con cobro adicional de prima",
+            "important": true
+        },
+        {
+            "valor": "Gastos de extincion del siniestro 5% del valor asegurado de los bienes afectados por el siniestro",
+            "important": true
+        },
+        {
+            "valor": "Honorarios profesionales 5% del valor asegurado de los bienes afectados por el siniestro",
+            "important": true
+        },
+        {
+            "valor": "Ampliacion de aviso de siniestro 15 dias.",
+            "important": true
+        },
+        {
+            "valor": "Primera opcion de compra sobre salvamentos",
+            "important": true
+        },
+        {
+            "valor": "Designacion de ajustadores",
+            "important": true
+        },
+        {
+            "valor": "Preservacion de bienes 5% de la suma asegurada de los bienes afectados por el siniestro",
+            "important": true
+        },
+        {
+            "valor": "Amparo automatico nuevos bienes hasta el 10% del valor asegurado de los contenidos de cada, aviso 3a0 dias ",
+            "important": true
+        },
+        {
+            "valor": "Conocimiento del riesgo",
+            "important": true
+        },
+        {
+            "valor": "Labores y Materiales",
+            "important": true
+        },
+        {
+            "valor": "Indice variable, siempre y cuando figure contratado en la caracatula de la poliza",
+            "important": true
+        },
+        {
+            "valor": "Gastos de viaje y estadia",
+            "important": true
+        }
+    ],
+    "deducibles": [
+        {
+            "nombre": "Incendio y/o rayo",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Explosion",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Daños por agua y Anegacion",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Granizo, huracan o Vientos fuertes",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Caida de aeronaves u objectos que caigan desprendidos de ellas",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Impacto de vehiculos terrestres",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Humo",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Asonada, motin, conmocion civil o popular, huelga",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Actos malintencionados de terceros",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Hurto calificado",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Hurto simple",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Hurto calificado dinero en efectivo",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de vidrios, espejos y cristales",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Terremoto, temblor y erupcion volcanica.",
+            "valor": "P.totales: 3% del vr aseg min 3 SMMLV-P.parciales: 10% vr perd in 3 SMMLV.",
+            "important": true
+        },
+        {
+            "nombre": "Daño interno equipo electrico y electronico",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Equipos para moviles y portatiles",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Infidelidad de los empleados",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Perdida de beneficios",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Responsabilidad Civil extrancontractuale",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Transporte de valores",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de maquina",
+            "valor": "No se otorga",
+            "important": true
+        }
+    ],
+    "bienesYValoresPymes": [
         {
             "nombre": "Edificios",
             "idFormulario": "edificios",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Indice de Variable",
             "idFormulario": "indiceVariable",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Contenidos",
             "idFormulario": "contenidos",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Muebles y enseres",
             "idFormulario": "mueblesEnseres",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Equipo electrico y electronico fijo",
             "idFormulario": "electricoElectronicoFijo",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Equipo electrico y electronico movil",
             "idFormulario": "electricoElectronicoMovil",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Maquinarias",
             "idFormulario": "maquinarias",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Mercancias",
             "idFormulario": "mercancias",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Materia Prima",
             "idFormulario": "materiaPrima",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         }
     ],
     "amparos": [
         {
             "nombre": "Incendios y/o rayo, Actos de autoridad, Explos Tifón, Huracán, Tornado, Ciclón, Vientos Fuertes, Granizo, Aeronaves, Vehículos, Humo, Daños por Agua, Anegación, Avalancha, Deslizamiento.",
             "idFormulario": "generales",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Lucro cesante Serv. Puplic.",
             "idFormulario": "lucroCesanteServPuplic",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Lucro cesante Proveedores",
             "idFormulario": "lucroCesanteProveedores",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Infidelidad de Empleados",
             "idFormulario": "infidelidadEmpleados",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Equipo Eléctrico y Electrónico",
             "idFormulario": "equipoEléctricoElectrónico",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Equipo Eléctrico y Electrónico Móvil",
             "idFormulario": "equipoEléctricoElectrónicoMóvil",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Frigorificos",
             "idFormulario": "frigorificos",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Vidas Grupo",
             "idFormulario": "vidasGrupo",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Terremoto, Temblor y Erupción volcánica",
             "idFormulario": "terremotoTemblorErupciónvolcánica",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Accidentes Personales",
             "idFormulario": "accidentesPersonales",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "AMIT - AMCCPH",
             "idFormulario": "AMIT_AMCCPH",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Gastos Medicos",
             "idFormulario": "gastosMedicos",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Hurto Calificado",
             "idFormulario": "hurtoCalificado",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Transporte de Valores",
             "idFormulario": "transporteValores",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Hurto Simplificado (Solo para equipo de oficina)",
             "idFormulario": "hurtoSimplificado",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Limite por despacho",
             "idFormulario": "limiteDespacho",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Hurto Calificado Dinero en efectivo",
             "idFormulario": "hurtoCalificadoDineroEfectivo",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Estimado Anual Declarado",
             "idFormulario": "estimadoAnualDeclarado",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Rotura de cristales, vidrios",
             "idFormulario": "roturaCristalesVidrios",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Rotura de Maquinaria",
             "idFormulario": "roturaMaquinaria",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Resp. Civil Extracontractual",
             "idFormulario": "respCivilExtracontractual",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Lucro cesante por incendio",
             "idFormulario": "lucroCesanteIncendio",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Lucro cesante por rotura Maq.",
             "idFormulario": "lucroCesanteRoturaMaq",
-            "important": false
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Porcentaje de Recargos",
             "idFormulario": "porcentajeRecargos",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         }
     ],
     "asistenciaPymes": [
         {
             "nombre": "Plomeria",
             "valor": "30 SMDLV por evento",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Electricidad",
             "valor": "30 SMDLV por evento",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Cerrajeria",
             "valor": "30 SMDLV por evento",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Rotura de Vidrios",
             "valor": "30 SMDLV por evento",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Vigilante Sustituto",
             "valor": "Hasta 7 días",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Aseadora Sustituta",
             "valor": "Hasta 5 días",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Gastos de reparación propiedades vecinas",
             "valor": "30 SMDLV por evento",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Transmision de mensajes urgentes",
             "valor": "Sí",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Orientacion Juridica",
             "valor": "Hasta 7 días por vigencia",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Orientacion Juridica telefonica",
             "valor": "Hasta 7 días por vigencia",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Emision de Conceptos Juridicos",
             "valor": "Sí",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
         },
         {
             "nombre": "Elaboración de documentos",
             "valor": "Sí",
-            "important": true
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        }
+    ],
+    "perfiles": [
+        {
+            "nombre": "CLAUDI AGALVIS",
+            "imagen": "./../../../assets/images/cla.jpg",
+            "telefono": "3208071644",
+            "email": "claudiagalvis@hcs.com.co"
+        },
+        {
+            "nombre": "ANDREY PRIETO",
+            "imagen": "./../../../assets/images/and.jpg",
+            "telefono": "914-123-456",
+            "email": "ANDREYPRIETOs@hcs.com.co"
+        },
+        {
+            "nombre": "JINETH CANTE",
+            "imagen": "./../../../assets/images/jim.jpg",
+            "telefono": "914-123-456",
+            "email": "claudiagalvis@hcs.com.co"
         }
     ]
 }

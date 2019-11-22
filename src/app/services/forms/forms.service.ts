@@ -93,7 +93,8 @@ export class FormsService {
       datosRiesgo: this.getFormDatosRiesgo(),
       bienesYValores: this.getFormBienesYValores(),
       totalValorAsegurado: [0],
-      amparos: this.getFormAmparos()
+      amparos: this.getFormAmparos(),
+      observacion: ['']
     });
     return formGroup;
   }

@@ -20,6 +20,18 @@
   cursor: pointer;
 }
 
+.image-aseguradora {
+  margin: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 1);
+  border: 10px solid rgba(255, 255, 255, 1);
+  overflow: hidden;
+  width: 248px;
+  height: 130px;
+}
+
 th {
   min-width: 100px;
 }
