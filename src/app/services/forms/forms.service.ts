@@ -94,7 +94,10 @@ export class FormsService {
       bienesYValores: this.getFormBienesYValores(),
       totalValorAsegurado: [0],
       amparos: this.getFormAmparos(),
-      observacion: ['']
+      observacion: [''],
+      prima: [0, [Validators.required]],
+      iva: [0, [Validators.required]],
+      totalAnual: [0, [Validators.required]]
     });
     return formGroup;
   }

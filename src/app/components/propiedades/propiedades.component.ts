@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { IAseguradoraProps } from 'src/app/interfaces/IAseguradoraProps';
+import * as datos from './../aseguradora/datos.json';
+import { FormGroup } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormsService } from 'src/app/services/forms/forms.service.js';
 @Component({
   selector: 'app-propiedades',
   templateUrl: './propiedades.component.html',
@@ -7,9 +11,86 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropiedadesComponent implements OnInit {
 
-  constructor() { }
+  @Input() public tasasCambio: object;
+  @Input() public propiedadesAseguradora: IAseguradoraProps;
+  @Output() public cerrarModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public enviarDatos: EventEmitter<any> = new EventEmitter<any>();
 
-  ngOnInit() {
+  public asistenciaDeducibles: Array<object> = datos.deducibles;
+  public asistenciaClausulas: Array<object> = datos.clausulasAdicionales;
+  public aseguradoraFormGroup: FormGroup;
+  public activeModal: NgbActiveModal;
+  public bienesYValores: Array<object> = datos.bienesYValoresPymes;
+  public amparos: Array<object> = datos.amparos;
+  public asistenciaPymes: Array<object> = datos.asistenciaPymes;
+  public totalValor: number;
+  public objetoFinal: any;
+  public emailFormGroup: FormGroup;
+  public showSuccessToast: boolean = false;
+  public showErrorToast: boolean = false;
+  public autohideSuccess: boolean = true;
+  public autohideError: boolean = true;
+  public buttonDisabled: boolean = false;
+
+  public constructor(
+    private formService: FormsService
+  ) {
+    this.aseguradoraFormGroup = this.formService.formularioCotizacionPymes();
   }
 
+  public ngOnInit(): void {
+  }
+
+  public get prima(): any {
+    return this.totalValorAsegurado ? this.totalValorAsegurado * (+this.propiedadesAseguradora.tasaPymes) : 0;
+  }
+
+  public get iva(): any {
+    return (this.prima * 0.19);
+  }
+
+  public get totalAnual(): any {
+    return (this.prima + this.iva);
+  }
+
+  public get controlFormularioBYV(): any {
+    return this.aseguradoraFormGroup.get('bienesYValores');
+  }
+
+  public get controlFormularioAmparos(): any {
+    return this.aseguradoraFormGroup.get('amparos');
+  }
+
+
+  public get totalValorAsegurado(): number {
+    const total: number =
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('edificios').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('indiceVariable').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('contenidos').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('mueblesEnseres').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoFijo').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoMovil').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('maquinarias').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('mercancias').value +
+      +this.aseguradoraFormGroup.controls['bienesYValores'].get('materiaPrima').value +
+      +this.aseguradoraFormGroup.controls['amparos'].get('hurtoCalificadoDineroEfectivo').value +
+      +this.aseguradoraFormGroup.controls['amparos'].get('respCivilExtracontractual').value +
+      +this.aseguradoraFormGroup.controls['amparos'].get('lucroCesanteIncendio').value;
+    return total;
+  }
+
+  public updateFormGroup(event: any, controlName: string): void {
+    this.aseguradoraFormGroup.controls[controlName] = event;
+  }
+
+  public enviarSolicitud(): void {
+    this.aseguradoraFormGroup.controls['prima'].setValue(this.prima);
+    this.aseguradoraFormGroup.controls['iva'].setValue(this.iva);
+    this.aseguradoraFormGroup.controls['totalAnual'].setValue(this.totalAnual);
+    this.enviarDatos.emit(this.aseguradoraFormGroup);
+  }
+
+  public closeModal(): void {
+    this.cerrarModal.emit(true);
+  }
 }

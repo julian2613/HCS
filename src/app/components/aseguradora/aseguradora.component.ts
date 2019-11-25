@@ -107,6 +107,12 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
         valor: this.aseguradoraFormGroup.controls['amparos'].get(element.idFormulario).value
       });
     });
+    datos.asistenciaPymes.forEach(element => {
+      asistenciaPymes.push({
+        label: element.nombre,
+        valor: element.valor
+      });
+    });
     datos.deducibles.forEach(element => {
       deduciblesLista.push({
         label: element.nombre,
@@ -147,11 +153,13 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
       deducibles: deduciblesLista,
       clasusulas: clausulasLista,
       observacion: this.aseguradoraFormGroup.controls['observacion'].value,
-      totalValorAsegurado: this.totalValorAsegurado
+      totalValorAsegurado: this.totalValorAsegurado,
+      prima: this.aseguradoraFormGroup.controls['prima'].value,
+      iva: this.aseguradoraFormGroup.controls['iva'].value,
+      totalAnual: this.aseguradoraFormGroup.controls['totalAnual'].value
     };
     this.activeModal.close();
     this.objetoFinal = objetoJson;
-    debugger;
     this.openModal(this.modalCorreo);
   }
 

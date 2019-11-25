@@ -55,7 +55,7 @@
 
 <!-- copropiedad  -->
 <ng-template #copropiedad let-c="close" let-d="dismiss">
-    <!-- <app-pymes></app-pymes> -->
+    <app-propiedades [propiedadesAseguradora]="propiedadesEmpresa" (enviarDatos)="generarDocumento($event)" (cerrarModal)="closeModal()"></app-propiedades>
 </ng-template>
 
 <ng-template #diligenciarCorreo let-c="close" let-d="dismiss">

@@ -486,5 +486,252 @@
             "telefono": "914-123-456",
             "email": "claudiagalvis@hcs.com.co"
         }
+    ],
+    "bienesYValoresPropiedad": [
+        {
+            "nombre": "Areas Comunes",
+            "idFormulario": "areasComunes",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Areas Privadas",
+            "idFormulario": "areasPrivadas",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Indice Variable",
+            "idFormulario": "indiceVariable",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Muebles y enseres",
+            "idFormulario": "mueblesEnseres",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Total contenidos",
+            "idFormulario": "totalContenidos",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Suelos y Terrenos",
+            "idFormulario": "sueldosYTerrenos",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Equipo electrico y electronico fijo",
+            "idFormulario": "electricoElectronicoFijo",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Equipo electrico y electronico movil",
+            "idFormulario": "electricoElectronicoMovil",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Rotura de Maquinarias",
+            "idFormulario": "roturaMaquinarias",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Rotura de Vidrios",
+            "idFormulario": "roturaVidrios",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Remocion de escombros",
+            "idFormulario": "remocionEscombros",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Hurto Calificado",
+            "idFormulario": "hurtoCalificado",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Hurto Simple",
+            "idFormulario": "hurtoSimple",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Hurto calificado dineros",
+            "idFormulario": "hurtoCalificadoDineros",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Responsabilidad civil extracontractual",
+            "idFormulario": "responsabilidadCivilExtracontractual",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "RC Directores y Administradores",
+            "idFormulario": "directoresAdministradores",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Infidelidad de empleados",
+            "idFormulario": "infidelidadEmpleados",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Transporte de Valores",
+            "idFormulario": "transporteValores",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Limite por Despacho",
+            "idFormulario": "limiteDespacho",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Promedio anual de movilizacion",
+            "idFormulario": "promedioAnualMovilizacion",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Cuotas de Administrador",
+            "idFormulario": "cuotasAdminsitrador",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Valor de cuota mensual de administrador",
+            "idFormulario": "valorCuotaMensualAdministrador",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Numero de Cuotas",
+            "idFormulario": "numeroCuotas",
+            "important": false,
+            "labelInfo": "Valor minimo (1)"
+        }
+    ],
+    "deduciblesPropiedad": [
+        {
+            "nombre": "Incendio y/o rayo:",
+            "valor": "0.5% del valor de la perdida.",
+            "important": true
+        },
+        {
+            "nombre": "Terremoto:",
+            "valor": "1% del valor asegurable AMIT 5% del valor de la perida min 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Demas Eventos:",
+            "valor": "3% del valor de la perdida minimo 0.5 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Suelos y Terre",
+            "valor": "1% del valor asegurado minimo 2 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Eq. Elect. Fijo",
+            "valor": "Deducible minimo del $250.000",
+            "important": true
+        },
+        {
+            "nombre": "Eq. Elect. Movil",
+            "valor": "15% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de maq.:",
+            "valor": "3% del valor de la perdida minimo 0.5 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de Vidrio:",
+            "valor": "NO SE OTORGA",
+            "important": true
+        },
+        {
+            "nombre": "Actos malintencionados de terceros",
+            "valor": "10% del valor de la perdida minimo 1 smmlv",
+            "important": true
+        },
+        {
+            "nombre": "Hurto calificado",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Hurto simple",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Hurto calificado dinero en efectivo",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de vidrios, espejos y cristales",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Terremoto, temblor y erupcion volcanica.",
+            "valor": "P.totales: 3% del vr aseg min 3 SMMLV-P.parciales: 10% vr perd in 3 SMMLV.",
+            "important": true
+        },
+        {
+            "nombre": "Daño interno equipo electrico y electronico",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Equipos para moviles y portatiles",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Infidelidad de los empleados",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Perdida de beneficios",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Responsabilidad Civil extrancontractuale",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Transporte de valores",
+            "valor": "No se otorga",
+            "important": true
+        },
+        {
+            "nombre": "Rotura de maquina",
+            "valor": "No se otorga",
+            "important": true
+        }
     ]
 }

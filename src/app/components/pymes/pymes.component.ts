@@ -42,6 +42,18 @@ export class PymesComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public get prima(): any {
+    return this.totalValorAsegurado ? this.totalValorAsegurado * (+this.propiedadesAseguradora.tasaPymes) : 0;
+  }
+
+  public get iva(): any {
+    return (this.prima * 0.19);
+  }
+
+  public get totalAnual(): any {
+    return (this.prima + this.iva);
+  }
+
   public get controlFormularioBYV(): any {
     return this.aseguradoraFormGroup.get('bienesYValores');
   }
@@ -72,7 +84,10 @@ export class PymesComponent implements OnInit {
     this.aseguradoraFormGroup.controls[controlName] = event;
   }
 
-  public enviarSolicitud():void {
+  public enviarSolicitud(): void {
+    this.aseguradoraFormGroup.controls['prima'].setValue(this.prima);
+    this.aseguradoraFormGroup.controls['iva'].setValue(this.iva);
+    this.aseguradoraFormGroup.controls['totalAnual'].setValue(this.totalAnual);
     this.enviarDatos.emit(this.aseguradoraFormGroup);
   }
 
