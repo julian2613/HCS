@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormsService } from 'src/app/services/forms/forms.service';
+import { IAseguradoraProps } from 'src/app/interfaces/IAseguradoraProps';
 
 @Component({
   selector: 'app-datos-cliente',
@@ -12,6 +13,7 @@ export class DatosClienteComponent implements OnInit {
   public datosCliente: FormGroup;
 
   @Output() envioDatosCliente: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Input() public propiedadesAseguradora: IAseguradoraProps;
 
   public constructor(
     public formService: FormsService

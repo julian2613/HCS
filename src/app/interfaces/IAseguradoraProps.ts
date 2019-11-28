@@ -4,5 +4,6 @@ export interface IAseguradoraProps {
     nombre: string;
     tasaPymes: string;
     tasaCopropiedad: string;
+    url: string;
 }
 

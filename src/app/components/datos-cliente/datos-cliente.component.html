@@ -1,14 +1,14 @@
 <div [formGroup]="datosCliente">
-        <div class="row" style="color: #41a02c; margin-bottom: 10px;margin-top: 25px;">
+        <div class="row" style="margin-bottom: 10px;margin-top: 25px;" [ngStyle]="{'color': propiedadesAseguradora.color}">
             <div class="col-12">Datos de cliente</div>
-            <hr style="width: 98%; background: #41a02c; margin: auto;">
+            <hr style="width: 98%; margin: auto; " [ngStyle]="{'background': propiedadesAseguradora.color}">
         </div>
         <div class="row form-group" style="margin-bottom: 10px;">
             <div class="col-3">
                 Fecha
             </div>
             <div class="col-3 form-group">
-                <input type="text" class="form-control" formControlName="fecha" ngDefaultControl />
+                <input type="date" class="form-control" formControlName="fecha" ngDefaultControl />
                 <span
                     *ngIf="datosCliente.get('fecha').hasError('required') && (datosCliente.get('fecha').dirty || datosCliente.get('fecha').touched)"
                     class="text-danger">

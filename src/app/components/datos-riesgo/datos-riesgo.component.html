@@ -1,9 +1,9 @@
 <div class="form-datos-cliente" [formGroup]="datosRiesgo">
-    <div class="row" style="color: #41a02c; margin-bottom: 10px;">
+    <div class="row" style="margin-bottom: 10px;" [ngStyle]="{'color': propiedadesAseguradora.color}">
         <div class="col-12">
             Datos de Riesgo
         </div>
-        <hr style="width: 98%; background: #41a02c; margin: auto;">
+        <hr style="width: 98%; margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
     </div>
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-3">

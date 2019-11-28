@@ -1,17 +1,25 @@
+body {
+  padding-right: 0px !important;
+}
 app-header {
-    position: fixed;
-    min-width: 100%;
-    top: 0;
-    z-index: 100;
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+  z-index: 100;
 }
 
 .modal-open {
-    padding-right: 0px !important;
+  padding-right: 0px !important;
 }
 
-
 .myCustomModalClass .modal-dialog {
-    min-width: 80%;
-    font-weight: bold;
-  }
-  
+  min-width: 80%;
+  font-weight: bold;
+}
+
+.mapfre {
+    color: #fc1702;
+    hr {   background-color: #fc1702;
+
+    } 
+}

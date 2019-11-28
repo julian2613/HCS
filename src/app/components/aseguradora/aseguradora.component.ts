@@ -5,6 +5,7 @@ import { FormsService } from 'src/app/services/forms/forms.service.js';
 import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { IAseguradoraProps } from 'src/app/interfaces/IAseguradoraProps.js';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-aseguradora',
@@ -19,9 +20,7 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
 
   public dinamycTextModal: string;
   public activeModal: NgbActiveModal;
-  public bienesYValores: Array<object> = datos.bienesYValoresPymes;
-  public amparos: Array<object> = datos.amparos;
-  public asistenciaPymes: Array<object> = datos.asistenciaPymes;
+  public aseguradorasList: Array<any> = datos.aseguradoras;
   public aseguradoraFormGroup: FormGroup;
   public totalValor: number;
   public objetoFinal: any;
@@ -31,12 +30,12 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   public autohideSuccess: boolean = true;
   public autohideError: boolean = true;
   public buttonDisabled: boolean = false;
-  public aseguradorasList: Array<any> = datos.aseguradoras;
 
   constructor(
     private modalService: NgbModal,
     private formService: FormsService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private spinnerService: NgxSpinnerService
   ) {
     this.aseguradoraFormGroup = this.formService.formularioCotizacionPymes();
     this.emailFormGroup = this.formService.formularioCorreoElectronico();
@@ -87,79 +86,9 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
     return total;
   }
 
-  public generarDocumento(formulario: any): void {
-    this.aseguradoraFormGroup = formulario;
-    let bienesYValores: object[] = [];
-    let amparos: object[] = [];
-    let asistenciaPymes: object[] = [];
-    let deduciblesLista: object[] = [];
-    let clausulasLista: object[] = [];
-
-    datos.bienesYValoresPymes.forEach(element => {
-      bienesYValores.push({
-        label: element.nombre,
-        valor: this.aseguradoraFormGroup.controls['bienesYValores'].get(element.idFormulario).value
-      });
-    });
-    datos.amparos.forEach(element => {
-      amparos.push({
-        label: element.nombre,
-        valor: this.aseguradoraFormGroup.controls['amparos'].get(element.idFormulario).value
-      });
-    });
-    datos.asistenciaPymes.forEach(element => {
-      asistenciaPymes.push({
-        label: element.nombre,
-        valor: element.valor
-      });
-    });
-    datos.deducibles.forEach(element => {
-      deduciblesLista.push({
-        label: element.nombre,
-        valor: element.valor
-      });
-    });
-    datos.clausulasAdicionales.forEach(element => {
-      clausulasLista.push({
-        valor: element.valor
-      });
-    });
-    const objetoJson: object = {
-      fecha: this.aseguradoraFormGroup.controls['datosCliente'].get('fecha').value,
-      nombreCliente: this.aseguradoraFormGroup.controls['datosCliente'].get('nombreCliente').value,
-      documento: this.aseguradoraFormGroup.controls['datosCliente'].get('documento').value,
-      telefono: this.aseguradoraFormGroup.controls['datosCliente'].get('telefono').value,
-      asesor: this.aseguradoraFormGroup.controls['datosCliente'].get('asesor').value,
-      agencia: this.aseguradoraFormGroup.controls['datosCliente'].get('agencia').value,
-      direccion: this.aseguradoraFormGroup.controls['datosRiesgo'].get('direccion').value,
-      ciudad: this.aseguradoraFormGroup.controls['datosRiesgo'].get('ciudad').value,
-      barrio: this.aseguradoraFormGroup.controls['datosRiesgo'].get('barrio').value,
-      departamento: this.aseguradoraFormGroup.controls['datosRiesgo'].get('departamento').value,
-      pisos: this.aseguradoraFormGroup.controls['datosRiesgo'].get('pisos').value,
-      sotanos: this.aseguradoraFormGroup.controls['datosRiesgo'].get('sotanos').value,
-      anoConstruccion: this.aseguradoraFormGroup.controls['datosRiesgo'].get('anoConstruccion').value,
-      actividad: this.aseguradoraFormGroup.controls['datosRiesgo'].get('actividad').value,
-      irregPlanta: this.aseguradoraFormGroup.controls['datosRiesgo'].get('irregPlanta').value,
-      irregAltura: this.aseguradoraFormGroup.controls['datosRiesgo'].get('irregAltura').value,
-      tipoEstructura: this.aseguradoraFormGroup.controls['datosRiesgo'].get('tipoEstructura').value,
-      grupoConstruccion: this.aseguradoraFormGroup.controls['datosRiesgo'].get('grupoConstruccion').value,
-      usoDelRiesgo: this.aseguradoraFormGroup.controls['datosRiesgo'].get('usoDelRiesgo').value,
-      estructuraReforzada: this.aseguradoraFormGroup.controls['datosRiesgo'].get('estructuraReforzada').value,
-      danosPrevios: this.aseguradoraFormGroup.controls['datosRiesgo'].get('danosPrevios').value,
-      bienesAsegurados: this.aseguradoraFormGroup.controls['datosRiesgo'].get('bienesAsegurados').value,
-      bienesYValores: bienesYValores,
-      amparos: amparos,
-      asistenciaPymes: asistenciaPymes,
-      deducibles: deduciblesLista,
-      clasusulas: clausulasLista,
-      observacion: this.aseguradoraFormGroup.controls['observacion'].value,
-      totalValorAsegurado: this.totalValorAsegurado,
-      prima: this.aseguradoraFormGroup.controls['prima'].value,
-      iva: this.aseguradoraFormGroup.controls['iva'].value,
-      totalAnual: this.aseguradoraFormGroup.controls['totalAnual'].value
-    };
-    this.activeModal.close();
-    this.objetoFinal = objetoJson;
+  public generarObjetoPyme(objeto: any): void {
+    this.objetoFinal = objeto;
+    console.log(this.objetoFinal);
     this.openModal(this.modalCorreo);
   }
 
@@ -185,10 +114,13 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
         to: this.emailFormGroup.controls['email'].value
       }
     };
-    this.httpClient.post('http://ec2-18-228-5-3.sa-east-1.compute.amazonaws.com:8080/hcs-1.0/report/generate', body).subscribe((response: any) => {
+    this.spinnerService.show();
+    this.httpClient.post('http://localhost:8080/report/generate', body).subscribe((response: any) => {
+      this.spinnerService.hide();
       this.showSuccessToast = true;
       this.activeModal.close();
     }, ((e: any) => {
+      this.spinnerService.hide();
       console.error(e);
       this.showErrorToast = true;
     }));

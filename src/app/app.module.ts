@@ -19,6 +19,7 @@ import { PymesComponent } from './components/pymes/pymes.component';
 import { DatosClienteComponent } from './components/datos-cliente/datos-cliente.component';
 import { DatosRiesgoComponent } from './components/datos-riesgo/datos-riesgo.component';
 import { TarjetaUsuarioComponent } from './components/tarjeta-usuario/tarjeta-usuario.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TarjetaUsuarioComponent } from './components/tarjeta-usuario/tarjeta-us
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPageScrollCoreModule.forRoot({duration: 500})
+    NgxPageScrollCoreModule.forRoot({duration: 500}),
+    NgxSpinnerModule
   ],
   providers: [
     FormsService

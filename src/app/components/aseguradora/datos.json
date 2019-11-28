@@ -5,24 +5,30 @@
             "imagen": "./../../../assets/images/mapfre.jpg",
             "color": "#fc1702",
             "tasaPymes": "0.0025",
-            "tasaCopropiedad": "0.0008"
+            "tasaCopropiedad": "0.0008",
+            "url": "https://www.mapfre.com.co/seguros-co/images/1200x630-logo-mapfre_tcm1124-83355.jpg",
+            "key": "mapfre"
         },
         {
             "nombre": "Seguros Del Estado",
             "imagen": "./../../../assets/images/segurosDelEstado.jpg",
             "color": "#323055",
             "tasaPymes": "0.0024",
-            "tasaCopropiedad": "0.0010"
+            "tasaCopropiedad": "0.0010",
+            "url": "http://coogranadaasesoresenseguros.com/wp-content/uploads/2016/09/segurosdelEstado.jpg",
+            "key": "estado"
         },
         {
             "nombre": "Equidad Seguros",
             "imagen": "./../../../assets/images/equidadSeguros.jpg",
             "color": "#2ca02c",
-            "tasaPymes": "",
-            "tasaCopropiedad": ""
+            "tasaPymes": "0,20",
+            "tasaCopropiedad": "0,015",
+            "url": "http://www.motovalle.com/wp-content/uploads/2017/10/equidad-seguros-logo.png",
+            "key": "equidad"
         }
     ],
-    "clausulasAdicionales": [
+    "clausulasAdicionalesPymes": [
         {
             "valor": "Remocion de escombros hasta por el 10% predio afectado.",
             "important": true
@@ -84,7 +90,7 @@
             "important": true
         }
     ],
-    "deducibles": [
+    "deduciblesPymes": [
         {
             "nombre": "Incendio y/o rayo",
             "valor": "10% del valor de la perdida minimo 1 smmlv",
@@ -247,7 +253,7 @@
             "labelInfo": "Valor minimo (1)"
         }
     ],
-    "amparos": [
+    "amparosPymes": [
         {
             "nombre": "Incendios y/o rayo, Actos de autoridad, Explos Tifón, Huracán, Tornado, Ciclón, Vientos Fuertes, Granizo, Aeronaves, Vehículos, Humo, Daños por Agua, Anegación, Avalancha, Deslizamiento.",
             "idFormulario": "generales",
@@ -492,7 +498,7 @@
             "nombre": "Areas Comunes",
             "idFormulario": "areasComunes",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Edificio: Valor de reconstruccion del inmuneble."
         },
         {
             "nombre": "Areas Privadas",
@@ -504,7 +510,7 @@
             "nombre": "Indice Variable",
             "idFormulario": "indiceVariable",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Indice Variable: Hasta el 10% del valor del edificio."
         },
         {
             "nombre": "Muebles y enseres",
@@ -522,19 +528,19 @@
             "nombre": "Suelos y Terrenos",
             "idFormulario": "sueldosYTerrenos",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Suelos y Terrenos: Solo opera para terremotos."
         },
         {
             "nombre": "Equipo electrico y electronico fijo",
             "idFormulario": "electricoElectronicoFijo",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Equipo electrico y electronico: Valor de reposision o remplazo de equipos electricos y electronicos. Equipos de sonido, TVs, PCs, Vr. asegurado maximo del 200% del vr. asegurado en incendio."
         },
         {
             "nombre": "Equipo electrico y electronico movil",
             "idFormulario": "electricoElectronicoMovil",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Equipo electronico movil: Valor de reposicion o remplazo de equipos portatiles."
         },
         {
             "nombre": "Rotura de Maquinarias",
@@ -546,13 +552,13 @@
             "nombre": "Rotura de Vidrios",
             "idFormulario": "roturaVidrios",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Valor maximo hasta de: $2.000.000.000"
         },
         {
             "nombre": "Remocion de escombros",
             "idFormulario": "remocionEscombros",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Maximo del 20% de la suma asegurada de los bienes afectados por el siniestro."
         },
         {
             "nombre": "Hurto Calificado",
@@ -600,7 +606,7 @@
             "nombre": "Limite por Despacho",
             "idFormulario": "limiteDespacho",
             "important": false,
-            "labelInfo": "Valor minimo (1)"
+            "labelInfo": "Maximo de $10.000.000"
         },
         {
             "nombre": "Promedio anual de movilizacion",
@@ -609,14 +615,14 @@
             "labelInfo": "Valor minimo (1)"
         },
         {
-            "nombre": "Cuotas de Administrador",
-            "idFormulario": "cuotasAdminsitrador",
+            "nombre": "Cuotas de Adminsitracion",
+            "idFormulario": "cuotasAdminsitracion",
             "important": false,
             "labelInfo": "Valor minimo (1)"
         },
         {
-            "nombre": "Valor de cuota mensual de administrador",
-            "idFormulario": "valorCuotaMensualAdministrador",
+            "nombre": "Valor de cuota mensual de Administracion",
+            "idFormulario": "valorCuotaMensualAdministracion",
             "important": false,
             "labelInfo": "Valor minimo (1)"
         },
@@ -669,11 +675,6 @@
             "important": true
         },
         {
-            "nombre": "Actos malintencionados de terceros",
-            "valor": "10% del valor de la perdida minimo 1 smmlv",
-            "important": true
-        },
-        {
             "nombre": "Hurto calificado",
             "valor": "No se otorga",
             "important": true
@@ -689,48 +690,159 @@
             "important": true
         },
         {
-            "nombre": "Rotura de vidrios, espejos y cristales",
+            "nombre": "RCE",
             "valor": "No se otorga",
             "important": true
         },
         {
-            "nombre": "Terremoto, temblor y erupcion volcanica.",
-            "valor": "P.totales: 3% del vr aseg min 3 SMMLV-P.parciales: 10% vr perd in 3 SMMLV.",
-            "important": true
-        },
-        {
-            "nombre": "Daño interno equipo electrico y electronico",
+            "nombre": "RC Dir y Adm:",
             "valor": "No se otorga",
             "important": true
         },
         {
-            "nombre": "Equipos para moviles y portatiles",
+            "nombre": "Infidelidad",
             "valor": "No se otorga",
             "important": true
         },
         {
-            "nombre": "Infidelidad de los empleados",
+            "nombre": "Transporte val.",
             "valor": "No se otorga",
+            "important": true
+        }
+    ],
+    "asistenciaPropiedad": [
+        {
+            "nombre": "Plomeria",
+            "valor": "30 SMDLV por evento ",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Electricidad",
+            "valor": "30 SMDLV por evento",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Cerrajeria",
+            "valor": "30 SMDLV por evento",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Rotura de Vidrios",
+            "valor": "30 SMDLV por evento",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Vigilante Sustituto",
+            "valor": "Hasta por 7 dias",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Gastos de reparacion propiedades vecinas",
+            "valor": "30 SMDLV por evento",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Transmision de mensajes urgentes",
+            "valor": "Si",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Orientacion Juridica",
+            "valor": "Hasta 7 eventos por vigencia",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Orientacion juridica telefonica",
+            "valor": "Hasta 7 eventos por vigencia",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Emision de Conceptos Juridicos",
+            "valor": "Si",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "nombre": "Elaboración de documentos",
+            "valor": "Sí",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        }
+    ],
+    "asistenciaPrivadaPropiedad": [
+        {
+            "valor": "Nota: Se otorgan 5 eventos de asistencia durante la vigencia para las áreas privadas, limitados según lo descrito a continuación:",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "valor": "- Plomeria: 30 SMDLV POR EVENTO.",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "valor": "- Electricidad: 30 SMDLV POR EVENTO.",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        },
+        {
+            "valor": "- Cerrajería: 30 SMDLV POR EVENTO.",
+            "important": true,
+            "labelInfo": "Valor minimo (1)"
+        }
+    ],
+    "clausulasAdicionalesPropiedad": [
+        {
+            "valor": "Remoción de escombros",
             "important": true
         },
         {
-            "nombre": "Perdida de beneficios",
-            "valor": "No se otorga",
+            "valor": "Gastos para la preservación de bienes",
             "important": true
         },
         {
-            "nombre": "Responsabilidad Civil extrancontractuale",
-            "valor": "No se otorga",
+            "valor": "Honorarios profesionales",
             "important": true
         },
         {
-            "nombre": "Transporte de valores",
-            "valor": "No se otorga",
+            "valor": "Gastos de extinción de siniestro",
             "important": true
         },
         {
-            "nombre": "Rotura de maquina",
-            "valor": "No se otorga",
+            "valor": "Traslado temporal de bienes",
+            "important": true
+        },
+        {
+            "valor": "Labores y materiales",
+            "important": true
+        },
+        {
+            "valor": "Ampliacion de aviso de siniestro 10 dias",
+            "important": true
+        },
+        {
+            "valor": "Rotura accidental de vidrios opera sin deducible para eventos hasta COP$2.000.000;",
+            "important": true
+        },
+        {
+            "valor": "para eventos con montos superiores, opera el deducible de demás eventos.",
+            "important": true
+        },
+        {
+            "valor": "En caso de fallecimiento del copropietario se indemnizarán hasta 3 cuotas de administracion correspondientes a la unidad afectada",
+            "important": true
+        },
+        {
+            "valor": "Amparo automatico de nuevos bienes aviso 30 dias",
             "important": true
         }
     ]

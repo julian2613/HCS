@@ -102,6 +102,50 @@ export class FormsService {
     return formGroup;
   }
 
+  public formularioCotizacionPropiedad(): FormGroup {
+    const formGroup: FormGroup = this.formBulder.group({
+      datosCliente: this.getFormDatosCliente(),
+      datosRiesgo: this.getFormDatosRiesgo(),
+      bienesYValores: this.getFormBienesYValoresPropiedad(),
+      totalValorAsegurado: [0],
+      amparos: this.getFormAmparos(),
+      observacion: [''],
+      prima: [0, [Validators.required]],
+      iva: [0, [Validators.required]],
+      totalAnual: [0, [Validators.required]]
+    });
+    return formGroup;
+  }
+
+  public getFormBienesYValoresPropiedad(): FormGroup {
+    const formGroup: FormGroup = this.formBulder.group({
+      areasComunes: [0, [Validators.required, Validators.min(1)]],
+      areasPrivadas: [0, [Validators.required, Validators.min(1)]],
+      indiceVariable: [0, [Validators.required, Validators.min(1)]],
+      mueblesEnseres: [0, [Validators.required, Validators.min(1)]],
+      totalContenidos: [0, [Validators.required, Validators.min(1)]],
+      sueldosYTerrenos: [0, [Validators.required, Validators.min(1)]],
+      electricoElectronicoFijo: [0, [Validators.required, Validators.min(1)]],
+      electricoElectronicoMovil: [0, [Validators.required, Validators.min(1)]],
+      roturaMaquinarias: [0, [Validators.required, Validators.min(1)]],
+      roturaVidrios: [0, [Validators.required, Validators.min(1)]],
+      remocionEscombros: [0, [Validators.required, Validators.min(1)]],
+      hurtoCalificado: [0, [Validators.required, Validators.min(1)]],
+      hurtoSimple: [0, [Validators.required, Validators.min(1)]],
+      hurtoCalificadoDineros: [0, [Validators.required, Validators.min(1)]],
+      responsabilidadCivilExtracontractual: [0, [Validators.required, Validators.min(1)]],
+      directoresAdministradores: [0, [Validators.required, Validators.min(1)]],
+      infidelidadEmpleados: [0, [Validators.required, Validators.min(1)]],
+      transporteValores: [0, [Validators.required, Validators.min(1)]],
+      limiteDespacho: [0, [Validators.required, Validators.min(1)]],
+      promedioAnualMovilizacion: [0, [Validators.required, Validators.min(1)]],
+      cuotasAdminsitracion: [0, [Validators.required, Validators.min(1)]],
+      valorCuotaMensualAdministracion: [0, [Validators.required, Validators.min(1)]],
+      numeroCuotas: [0, [Validators.required, Validators.min(1)]]
+    });
+    return formGroup;
+  }
+
   public formularioCorreoElectronico(): FormGroup {
     const formGroup: FormGroup = this.formBulder.group({
       email: ['', [Validators.required, Validators.pattern('^[_a-z0-9-]+(.[_a-z0-9-./]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$')]]

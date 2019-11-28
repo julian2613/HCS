@@ -37,8 +37,7 @@
         </div>
         <div class="row">
             <div class="col-6" style="text-align: center">
-                <button type="button" class="btn btn-secondary"
-                    (click)="abrirCotizador(pymes)">PYMES</button></div>
+                <button type="button" class="btn btn-secondary" (click)="abrirCotizador(pymes)">PYMES</button></div>
             <div class="col-6" style="text-align: center">
                 <button type="button" class="btn btn-secondary"
                     (click)="abrirCotizador(copropiedad)">Copropiedad</button></div>
@@ -50,12 +49,14 @@
 
 <!-- pymes  -->
 <ng-template #pymes let-c="close" let-d="dismiss">
-    <app-pymes [propiedadesAseguradora]="propiedadesEmpresa" (enviarDatos)="generarDocumento($event)" (cerrarModal)="closeModal()"></app-pymes>
+    <app-pymes [propiedadesAseguradora]="propiedadesEmpresa" (enviarDatos)="generarObjetoPyme($event)"
+        (cerrarModal)="closeModal()"></app-pymes>
 </ng-template>
 
 <!-- copropiedad  -->
 <ng-template #copropiedad let-c="close" let-d="dismiss">
-    <app-propiedades [propiedadesAseguradora]="propiedadesEmpresa" (enviarDatos)="generarDocumento($event)" (cerrarModal)="closeModal()"></app-propiedades>
+    <app-propiedades [propiedadesAseguradora]="propiedadesEmpresa" (enviarDatos)="generarObjetoCopropiedad($event)"
+        (cerrarModal)="closeModal()"></app-propiedades>
 </ng-template>
 
 <ng-template #diligenciarCorreo let-c="close" let-d="dismiss">
@@ -107,3 +108,8 @@
         Problemas al enviar el correo electronico !
     </div>
 </ngb-toast>
+
+<ngx-spinner bdOpacity="0.6" bdColor="#00305b" size="default" color="white" type="ball-clip-rotate-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> Generando documento... </p>
+</ngx-spinner>

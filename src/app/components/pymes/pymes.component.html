@@ -9,30 +9,30 @@
     </div>
     <div class="modal-body">
         <section>
-            <div class="row" style="color: #ec2c01; width: 100%;">
+            <div class="row" style=" width: 100%;">
                 <div class="col-4">
                     <img src="{{propiedadesAseguradora.imagen}}" alt="" width="228px" height="110px">
                 </div>
-                <div class="col-4" style="color: #41a02c;  font-size: 1.4em; text-align: center;">
-                    COTIZACION POLIZA DE TODO RIESGOS DAÑO MATERIAL EQUIEMPRESA
+                <div class="col-4" style="font-size: 1.4em; text-align: center;" [ngStyle]="{'color': propiedadesAseguradora.color}">
+                    COTIZACION POLIZA DE TODO RIESGOS DAÑO MATERIAL EMPRESA
                 </div>
-                <div class="col-4" style="color: #41a02c; text-align: right; font-size: 1.5em;">
+                <div class="col-4" style="text-align: right; font-size: 1.5em;" [ngStyle]="{'color': propiedadesAseguradora.color}">
                     PYME
                 </div>
             </div>
 
             <!-- Datos de cliente  INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
-            <app-datos-cliente (envioDatosCliente)="updateFormGroup($event, 'datosCliente')"></app-datos-cliente>
+            <app-datos-cliente (envioDatosCliente)="updateFormGroup($event, 'datosCliente')" [propiedadesAseguradora]="propiedadesAseguradora"></app-datos-cliente>
 
             <!-- Datos de Riesgo -->
-            <app-datos-riesgo (envioDatosRiesgo)="updateFormGroup($event, 'datosRiesgo')"></app-datos-riesgo>
+            <app-datos-riesgo (envioDatosRiesgo)="updateFormGroup($event, 'datosRiesgo')" [propiedadesAseguradora]="propiedadesAseguradora"></app-datos-riesgo>
 
             <!-- Relacion de bienes INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="form-relacion-bienes" [formGroup]="aseguradoraFormGroup.controls.bienesYValores">
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-4" style="color: #41a02c;">Relacion de bienes</div>
-                    <div class="col-4" style="color: #41a02c;">Valores asegurados</div>
-                    <hr style="width: 98%; background: #41a02c; margin: auto;">
+                    <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Relacion de bienes</div>
+                    <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Valores asegurados</div>
+                    <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                     <div class="row list-items" *ngFor=" let item of bienesYValores">
                         <div class="col-4">{{item.nombre}}</div>
                         <div class="col-4">
@@ -50,8 +50,8 @@
             <!-- Amparos INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="form-relacion-bienes" [formGroup]="aseguradoraFormGroup.controls.amparos">
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-12" style="color: #41a02c;">Amparos</div>
-                    <hr style="width: 98%; background: #41a02c; margin: auto;">
+                    <div class="col-12" [ngStyle]="{'color': propiedadesAseguradora.color}">Amparos</div>
+                    <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                     <div class="row" style="min-width: 45%; max-width: 45%; margin: 0.5%;"
                         *ngFor=" let item of amparos">
                         <div class="col-3" style="min-width: 50%;" [ngClass]="item.important ? 'bolder': ''">
@@ -81,8 +81,8 @@
 
             <!-- Asistencia PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
-                <div class="col-4" style="color: #41a02c;">Asistencia PYME</div>
-                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Asistencia PYME</div>
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row list-items" *ngFor=" let item of asistenciaPymes">
                     <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
                     <div class="col-4" style="text-align: left">{{item.valor}}</div>
@@ -90,8 +90,8 @@
             </div>
             <!-- deducibles PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
-                <div class="col-4" style="color: #41a02c;">Deducibles</div>
-                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Deducibles</div>
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row list-items" *ngFor=" let item of asistenciaDeducibles">
                     <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
                     <div class="col-8" style="text-align: left">{{item.valor}}</div>
@@ -99,33 +99,33 @@
             </div>
 
             <!-- Totales  -->
-            <div class="col-4" style="color: #41a02c;">Totales</div>
-            <hr style="width: 98%; background: #41a02c; margin: auto;">
+            <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Totales</div>
+            <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-2"> Prima Anual:</div>
                 <div class="col-2">
                     {{ prima }}
                 </div>
                 <div class="col-2"> Iva:</div>
-                <div class="col-2">
+                <div class="col-2"> {{ iva }}
                 </div>
                 <div class="col-2"> Total:</div>
-                <div class="col-2">
+                <div class="col-2"> {{ totalAnual }}
                 </div>
             </div>
 
             <!-- clausulas PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
-                <div class="col-4" style="color: #41a02c;">Clausulas adicionales: </div>
-                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Clausulas adicionales: </div>
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row list-items" *ngFor=" let item of asistenciaClausulas">
                     <div class="col-8" style="text-align: left; margin-left: 20px;">{{item.valor}}</div>
                 </div>
             </div>
             <!-- clausulas PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
-                <div class="col-4" style="color: #41a02c;">Observaciones: </div>
-                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Observaciones: </div>
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row" style="justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 20px">
                     <div class="col-10">
                         <textarea type="text" formControlName="observacion" class="form-control"
@@ -133,7 +133,7 @@
                     </div>
                 </div>
 
-                <hr style="width: 98%; background: #41a02c; margin: auto;">
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row" style="justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 20px">
                     <div class="col-10" style="text-align: center;">
                         TODAS LAS CONDICIONES DE ESTA COTIZACION SE RIGEN POR EL CONDICIONADO GENERAL FORMA 05/05/2015-1501-P-07-0000000000000002803, LA EXPEDICION DE LA POLIZA ESTA CONDICIONADA AL CUMPLIMIENTO DE LOS REQUISITOS DE ASEGURABILIDAD EXIGIDOS POR LA EQUIDAD SEGUROS O.C.
