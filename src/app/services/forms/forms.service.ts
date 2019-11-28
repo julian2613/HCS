@@ -108,7 +108,6 @@ export class FormsService {
       datosRiesgo: this.getFormDatosRiesgo(),
       bienesYValores: this.getFormBienesYValoresPropiedad(),
       totalValorAsegurado: [0],
-      amparos: this.getFormAmparos(),
       observacion: [''],
       prima: [0, [Validators.required]],
       iva: [0, [Validators.required]],

@@ -49,6 +49,15 @@
                 </div>
             </div>
            
+            <!-- deducibles PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Deducibles</div>
+                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
+                <div class="row list-items" *ngFor=" let item of asistenciaDeducibles">
+                    <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
+                    <div class="col-8" style="text-align: left">{{item.valor}}</div>
+                </div>
+            </div>
 
             <!-- clausulas PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
@@ -58,6 +67,7 @@
                     <div class="col-8" style="text-align: left; margin-left: 20px;">{{item.valor}}</div>
                 </div>
             </div>
+
              <!-- Asistencia PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Asistencia a Copropiedad		</div>
@@ -77,29 +87,9 @@
                 </div>
             </div>
 
-            <!-- <div class="row">
-                <div class="col-3 bolder">
-                    Total valor asegurado
-                </div>
-                <div class="col-3">
-                    {{totalValorAsegurado}}
-                </div>
-
-            </div> -->
-
-           
-            <!-- deducibles PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
-            <!-- <div class="row" style="margin-bottom: 10px;">
-                <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Deducibles</div>
-                <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
-                <div class="row list-items" *ngFor=" let item of asistenciaDeducibles">
-                    <div class="col-4" [ngClass]="item.important ? 'bolder': ''">{{item.nombre}}</div>
-                    <div class="col-8" style="text-align: left">{{item.valor}}</div>
-                </div>
-            </div> -->
 
             <!-- Totales  -->
-            <!-- <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Totales</div>
+            <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Totales</div>
             <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-2"> Prima Anual:</div>
@@ -112,9 +102,9 @@
                 <div class="col-2"> Total:</div>
                 <div class="col-2"> {{ totalAnual }}
                 </div>
-            </div> -->
-            <!-- observaciones PYMES INDEPENDIZAR EN SUB COMPONENTE PARA LA REUTILIZACION -->
-            <!-- <div class="row" style="margin-bottom: 10px;">
+            </div>
+            <!-- observaciones -->
+            <div class="row" style="margin-bottom: 10px;">
                 <div class="col-4" [ngStyle]="{'color': propiedadesAseguradora.color}">Observaciones: </div>
                 <hr style="width: 98%;margin: auto;" [ngStyle]="{'background': propiedadesAseguradora.color}">
                 <div class="row" style="justify-content: center; width: 100%; margin-top: 20px; margin-bottom: 20px">
@@ -133,7 +123,7 @@
                         </p>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </section>
     </div>
     <div class="modal-footer">

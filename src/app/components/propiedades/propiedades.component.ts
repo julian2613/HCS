@@ -41,17 +41,22 @@ export class PropiedadesComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  // public get prima(): any {
-  //   return this.totalValorAsegurado ? this.totalValorAsegurado * (+this.propiedadesAseguradora.tasaPymes) : 0;
-  // }
+  public get prima(): any {
+    let temporal: any = 0;
 
-  // public get iva(): any {
-  //   return (this.prima * 0.19);
-  // }
+    datos.bienesYValoresPropiedad.forEach((input: any)=>{
+      temporal = temporal + this.aseguradoraFormGroup.controls['bienesYValores'].get(input.idFormulario).value;
+    });
+    return temporal * (+this.propiedadesAseguradora.tasaCopropiedad);
+  }
 
-  // public get totalAnual(): any {
-  //   return (this.prima + this.iva);
-  // }
+  public get iva(): any {
+    return (this.prima * 0.19);
+  }
+
+  public get totalAnual(): any {
+    return (this.prima + this.iva);
+  }
 
   public get controlFormularioBYV(): any {
     return this.aseguradoraFormGroup.get('bienesYValores');
@@ -62,31 +67,14 @@ export class PropiedadesComponent implements OnInit {
   }
 
 
-  // public get totalValorAsegurado(): number {
-  //   const total: number =
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('edificios').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('indiceVariable').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('contenidos').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('mueblesEnseres').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoFijo').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoMovil').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('maquinarias').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('mercancias').value +
-  //     +this.aseguradoraFormGroup.controls['bienesYValores'].get('materiaPrima').value +
-  //     +this.aseguradoraFormGroup.controls['amparos'].get('hurtoCalificadoDineroEfectivo').value +
-  //     +this.aseguradoraFormGroup.controls['amparos'].get('respCivilExtracontractual').value +
-  //     +this.aseguradoraFormGroup.controls['amparos'].get('lucroCesanteIncendio').value;
-  //   return total;
-  // }
-
   public updateFormGroup(event: any, controlName: string): void {
     this.aseguradoraFormGroup.controls[controlName] = event;
   }
 
   public enviarSolicitud(): void {
-    // this.aseguradoraFormGroup.controls['prima'].setValue(this.prima);
-    // this.aseguradoraFormGroup.controls['iva'].setValue(this.iva);
-    // this.aseguradoraFormGroup.controls['totalAnual'].setValue(this.totalAnual);
+    this.aseguradoraFormGroup.controls['prima'].setValue(this.prima);
+    this.aseguradoraFormGroup.controls['iva'].setValue(this.iva);
+    this.aseguradoraFormGroup.controls['totalAnual'].setValue(this.totalAnual);
     this.enviarDatos.emit(this.construirObjeto());
   }
 
@@ -97,38 +85,40 @@ export class PropiedadesComponent implements OnInit {
 
   private construirObjeto(): object {
     const bienesYValoresList: object[] = [];
-    const amparosList: object[] = [];
-    const asistenciaPymesList: object[] = [];
+    const asistenciaAreaPrivadaPropiedadList: object[] = [];
+    const asistenciaPropiedadList: object[] = [];
     const deduciblesList: object[] = [];
     const clausulasList: object[] = [];
 
-    datos.bienesYValoresPymes.forEach(element => {
+    datos.bienesYValoresPropiedad.forEach(element => {
       bienesYValoresList.push({
         label: element.nombre,
         valor: this.aseguradoraFormGroup.controls.bienesYValores.get(element.idFormulario).value
       });
     });
-    datos.amparosPymes.forEach(element => {
-      amparosList.push({
-        label: element.nombre,
-        valor: this.aseguradoraFormGroup.controls.amparos.get(element.idFormulario).value
-      });
-    });
-    datos.asistenciaPymes.forEach(element => {
-      asistenciaPymesList.push({
-        label: element.nombre,
-        valor: element.valor
-      });
-    });
-    datos.deduciblesPymes.forEach(element => {
+    datos.deduciblesPropiedad.forEach(element => {
       deduciblesList.push({
         label: element.nombre,
         valor: element.valor
       });
     });
-    datos.clausulasAdicionalesPymes.forEach(element => {
+
+    datos.clausulasAdicionalesPropiedad.forEach(element => {
       clausulasList.push({
         valor: element.valor
+      });
+    });
+
+    datos.asistenciaPropiedad.forEach(element => {
+      asistenciaPropiedadList.push({
+        label: element.nombre,
+        valor: element.valor
+      });
+    });
+
+    datos.asistenciaPrivadaPropiedad.forEach(element => {
+      asistenciaAreaPrivadaPropiedadList.push({
+        label: element.valor
       });
     });
     const objetoJson: object = {
@@ -156,17 +146,17 @@ export class PropiedadesComponent implements OnInit {
       danosPrevios: this.aseguradoraFormGroup.controls.datosRiesgo.get('danosPrevios').value,
       bienesAsegurados: this.aseguradoraFormGroup.controls.datosRiesgo.get('bienesAsegurados').value,
       bienesYValores: bienesYValoresList,
-      amparos: amparosList,
-      asistenciaPymes: asistenciaPymesList,
+      asistenciaAreaPrivada: asistenciaAreaPrivadaPropiedadList,
+      asistenciaPropiedad: asistenciaPropiedadList,
       deducibles: deduciblesList,
       clasusulas: clausulasList,
       observacion: this.aseguradoraFormGroup.controls.observacion.value,
-      // totalValorAsegurado: this.totalValorAsegurado,
       prima: this.aseguradoraFormGroup.controls.prima.value,
       iva: this.aseguradoraFormGroup.controls.iva.value,
       totalAnual: this.aseguradoraFormGroup.controls.totalAnual.value,
       color: this.propiedadesAseguradora.color
     };
+    debugger;
     return objetoJson;
   }
 }
