@@ -118,7 +118,7 @@ export class PropiedadesComponent implements OnInit {
 
     datos.asistenciaPrivadaPropiedad.forEach(element => {
       asistenciaAreaPrivadaPropiedadList.push({
-        label: element.valor
+        valor: element.valor
       });
     });
     const objetoJson: object = {
@@ -156,7 +156,6 @@ export class PropiedadesComponent implements OnInit {
       totalAnual: this.aseguradoraFormGroup.controls.totalAnual.value,
       color: this.propiedadesAseguradora.color
     };
-    debugger;
     return objetoJson;
   }
 }

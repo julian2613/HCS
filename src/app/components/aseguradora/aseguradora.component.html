@@ -89,7 +89,7 @@
         <label style="font-weight: bold; color: red;">Si cancela, se perderan los datos diligenciados
             anteriormente.</label>
         <button type="button" class="btn btn-primary"
-            [disabled]="(emailFormGroup.status == 'VALID' ? false : true) || buttonDisabled"
+            [disabled]="(emailFormGroup.status == 'VALID' ? false : true)"
             (click)="enviarDocumento()">Enviar</button>
         <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar Envio</button>
     </div>

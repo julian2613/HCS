@@ -30,7 +30,8 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   public autohideSuccess: boolean = true;
   public autohideError: boolean = true;
   public buttonDisabled: boolean = false;
-
+  public tipoDocumento: string;
+  
   constructor(
     private modalService: NgbModal,
     private formService: FormsService,
@@ -88,26 +89,24 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
 
   public generarObjetoPyme(objeto: any): void {
     this.objetoFinal = objeto;
+    this.activeModal.close();
+    this.tipoDocumento = 'pyme';
     console.log(this.objetoFinal);
     this.openModal(this.modalCorreo);
   }
 
-  public get controlFormularioBYV(): any {
-    return this.aseguradoraFormGroup.get('bienesYValores');
-  }
-
-  public get controlFormularioAmparos(): any {
-    return this.aseguradoraFormGroup.get('amparos');
+  public generarObjetoCopropiedad(objeto: any): void {
+    this.objetoFinal = objeto;
+    this.tipoDocumento = 'copropiedad';
+    this.activeModal.close();
+    console.log(this.objetoFinal);
+    this.openModal(this.modalCorreo);
   }
 
   public enviarDocumento(): void {
-    this.buttonDisabled = true;
-    setTimeout(() => {
-      this.buttonDisabled = false;
-    }, 5000);
     const body: any = {
       template: {
-        name: 'pyme',
+        name: this.tipoDocumento,
         parameters: this.objetoFinal
       },
       mail: {
