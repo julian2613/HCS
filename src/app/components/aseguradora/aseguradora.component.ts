@@ -18,11 +18,8 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
 
   public propiedadesEmpresa: IAseguradoraProps;
 
-  public dinamycTextModal: string;
   public activeModal: NgbActiveModal;
   public aseguradorasList: Array<any> = datos.aseguradoras;
-  public aseguradoraFormGroup: FormGroup;
-  public totalValor: number;
   public objetoFinal: any;
   public emailFormGroup: FormGroup;
   public showSuccessToast: boolean = false;
@@ -31,14 +28,13 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   public autohideError: boolean = true;
   public buttonDisabled: boolean = false;
   public tipoDocumento: string;
-  
+
   constructor(
     private modalService: NgbModal,
     private formService: FormsService,
     private httpClient: HttpClient,
     private spinnerService: NgxSpinnerService
   ) {
-    this.aseguradoraFormGroup = this.formService.formularioCotizacionPymes();
     this.emailFormGroup = this.formService.formularioCorreoElectronico();
   }
 
@@ -46,7 +42,7 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.aseguradoraFormGroup.reset();
+    this.objetoFinal = undefined;
   }
 
   selectCotizador(objetoCotizadora: IAseguradoraProps, modalSeleccion: any): void {
@@ -60,31 +56,12 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
   }
 
   public openModal(content, styles?): void {
-    this.dinamycTextModal = 'Si el problema persiste, contacte con el proveedor del servicio.';
     this.activeModal = this.modalService.open(content, { windowClass: styles });
   }
 
   public closeModal(): void {
     this.activeModal.close();
-    this.aseguradoraFormGroup.reset();
 
-  }
-
-  public get totalValorAsegurado(): number {
-    const total: number =
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('edificios').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('indiceVariable').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('contenidos').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('mueblesEnseres').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoFijo').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('electricoElectronicoMovil').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('maquinarias').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('mercancias').value +
-      +this.aseguradoraFormGroup.controls['bienesYValores'].get('materiaPrima').value +
-      +this.aseguradoraFormGroup.controls['amparos'].get('hurtoCalificadoDineroEfectivo').value +
-      +this.aseguradoraFormGroup.controls['amparos'].get('respCivilExtracontractual').value +
-      +this.aseguradoraFormGroup.controls['amparos'].get('lucroCesanteIncendio').value;
-    return total;
   }
 
   public generarObjetoPyme(objeto: any): void {

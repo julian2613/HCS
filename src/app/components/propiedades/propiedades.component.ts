@@ -47,15 +47,15 @@ export class PropiedadesComponent implements OnInit {
     datos.bienesYValoresPropiedad.forEach((input: any)=>{
       temporal = temporal + this.aseguradoraFormGroup.controls['bienesYValores'].get(input.idFormulario).value;
     });
-    return temporal * (+this.propiedadesAseguradora.tasaCopropiedad);
+    return  Math.ceil(temporal * (+this.propiedadesAseguradora.tasaCopropiedad));
   }
 
   public get iva(): any {
-    return (this.prima * 0.19);
+    return Math.ceil(this.prima * 0.19);
   }
 
   public get totalAnual(): any {
-    return (this.prima + this.iva);
+    return Math.ceil(this.prima + this.iva);
   }
 
   public get controlFormularioBYV(): any {

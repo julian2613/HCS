@@ -45,15 +45,15 @@ export class PymesComponent implements OnInit {
   }
 
   public get prima(): any {
-    return this.totalValorAsegurado ? this.totalValorAsegurado * (+this.propiedadesAseguradora.tasaPymes) : 0;
+    return Math.ceil(this.totalValorAsegurado ? this.totalValorAsegurado * (+this.propiedadesAseguradora.tasaPymes) : 0);
   }
 
   public get iva(): any {
-    return (this.prima * 0.19);
+    return Math.ceil(this.prima * 0.19);
   }
 
   public get totalAnual(): any {
-    return (this.prima + this.iva);
+    return Math.ceil(this.prima + this.iva);
   }
 
   public get controlFormularioBYV(): any {
