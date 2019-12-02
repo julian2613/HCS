@@ -91,7 +91,7 @@ export class AseguradoraComponent implements OnInit, OnDestroy {
       }
     };
     this.spinnerService.show();
-    this.httpClient.post('http://localhost:8080/report/generate', body).subscribe((response: any) => {
+    this.httpClient.post('http://ec2-18-228-5-3.sa-east-1.compute.amazonaws.com:8080/hcs-1.0/report/generate', body).subscribe((response: any) => {
       this.spinnerService.hide();
       this.showSuccessToast = true;
       this.activeModal.close();
