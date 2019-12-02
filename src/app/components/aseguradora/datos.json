@@ -22,8 +22,8 @@
             "nombre": "Equidad Seguros",
             "imagen": "./../../../assets/images/equidadSeguros.jpg",
             "color": "#2ca02c",
-            "tasaPymes": "0,20",
-            "tasaCopropiedad": "0,015",
+            "tasaPymes": "0.20",
+            "tasaCopropiedad": "0.015",
             "url": "http://www.motovalle.com/wp-content/uploads/2017/10/equidad-seguros-logo.png",
             "key": "equidad"
         }
